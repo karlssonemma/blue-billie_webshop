@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@100;200;300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200&family=Righteous&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/d88157749e.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./styles/header.css">
+    <link rel="stylesheet" href="./styles/grid.css">
+    <link rel="stylesheet" href="./styles/cart.css">
+    <script src="./js/main.js" type="module" defer></script>
+    <title>Document</title>
+</head>
+
+
+
+    <!-- HEADER -->
+<header>
+    <div class="header">
+
+        <div class="header__item h-logo">
+            <p>BLUE BILLIE</p>
+        </div>
+
+
+        <div class="header__item search">
+            <input type="text" class="search__input">
+            <button class="search__submit">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+
+        
+        <div class="header__item cart-img">
+            <span></span>
+            <i class="fas fa-shopping-cart"></i>
+        </div>
+
+    </div>
+</header>
+
+
+
+<body>
+
+    <!-- CART -->
+    <div class="overlay"></div>
+        <div class="cart">
+            <h2 class="cart__header">YOUR SHOPPING CART IS EMPTY :(</h2>
+            <button class="cart__close">X</button>
+            <div class="cart__container-products">
+            </div>
+        </div>
+    
+        <!-- MENU -->
+        <div class="menu-toggler">
+            <button class="menu-btn">MENU</button>
+        </div>
+
+        <div class="menu">
+
+            <div class="menu__item">
+                <a class="menu__link" href="#necklaces">Necklaces</a>
+            </div>
+
+            <div class="menu__item">
+                <a class="menu__link" href="#earrings">Earrings</a>
+            </div>
+
+            <div class="menu__item">
+                <a class="menu__link" href="#bracelets">Bracelets</a>
+            </div>
+
+        </div>
+    
+
+        <!-- GRID -->
+        <section class="grid grid-necklaces" id="necklaces">
+            
+        </section>
+
+        <section class="grid grid-earrings" id="earrings">
+            
+        </section>
+
+        <section class="grid grid-bracelets" id="bracelets">
+            
+        </section>
+
+
+    
+</body>
+</html>
