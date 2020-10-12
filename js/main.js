@@ -1,23 +1,26 @@
 import {NECKLACES, EARRINGS, BRACELETS} from './collections.js';
 
 
-// MENY ------------------
+// MENU ------------------
 
 let menu = document.querySelector('.menu');
 let menuBtn = document.querySelector('.menu-btn');
+let menuBtnImg = document.querySelector('.menu-btn__arrow');
+
 
 let isTrue = true;
 
-// SHOW MENU FUNCTION
+// SHOW MENU FUNCTION ----------------
 
 function showMenu() {
     
     if (isTrue === true) {
-        menuBtn.innerHTML = 'X';
         menu.style.top = 0;
+        menuBtnImg.style.transform = 'rotate(-270deg)';
+
     } else {
-        menuBtn.innerHTML = 'MENU';
-        menu.style.top = -200 + 'px';
+        menu.style.top = -210 + 'px';
+        menuBtnImg.style.transform = 'rotate(270deg)';
     };
 
     isTrue = !isTrue;
@@ -28,9 +31,6 @@ menuBtn.addEventListener('click', showMenu);
 // CART ------------------
 let cartContainer = document.querySelector('.cart__container-products');
 let CART = [];
-
-
-
 
 
 // ELEMENT -------------------
@@ -59,7 +59,7 @@ for (let i = 0; i < NECKLACES.length; i++) {
 
     let price = document.createElement('p');
     price.classList.add('grid-item__price');
-    price.innerHTML = NECKLACES[i].price;
+    price.innerHTML = NECKLACES[i].price + '€';
     article.appendChild(price);
 
     let addItem = document.createElement('button');
@@ -89,7 +89,7 @@ for (let i = 0; i < EARRINGS.length; i++) {
 
     let price = document.createElement('p');
     price.classList.add('grid-item__price');
-    price.innerHTML = EARRINGS[i].price;
+    price.innerHTML = EARRINGS[i].price + '€';
     article.appendChild(price);
 
     let addItem = document.createElement('button');
@@ -119,7 +119,7 @@ for (let i = 0; i < BRACELETS.length; i++) {
 
     let price = document.createElement('p');
     price.classList.add('grid-item__price');
-    price.innerHTML = BRACELETS[i].price;
+    price.innerHTML = BRACELETS[i].price + '€';
     article.appendChild(price);
 
     let addItem = document.createElement('button');
@@ -129,8 +129,11 @@ for (let i = 0; i < BRACELETS.length; i++) {
     article.appendChild(addItem);
 };
 
+let numberOfItems = document.querySelector('.cart-btn__number');
+let totalOutput = document.querySelector('.cart__tot-price-output');
 
-// ADD TO CART ARRAY ------------- 
+
+// ADD TO CART-ARRAY ------------- 
 function addItem(e) {
     for (let i = 0; i < BRACELETS.length; i++) {
 
@@ -155,24 +158,50 @@ function addItem(e) {
 
     showItem();
     showCart();
-    console.log(CART);
 
+    // SHOWS HOW MANY PRODUCTS THERE IS IN THE CART - IN HEAD.
+    numberOfItems.innerHTML = CART.length;
+
+    // SHOWS TOTAL PRICE IN SIDECART
+    let totalPrice = 0;
+
+    for (let i = 0; i < CART.length; i++) {
+        totalPrice += CART[i].price;
+        totalOutput.innerHTML = totalPrice + '€';
+    }
 };
 
-// SHOW CART FUNCTION
+
+
+// SHOW/HIDE CART FUNCTIONS -----------------
 let sideCart = document.querySelector('.cart');
+let closeBtn = document.querySelector('.cart__close');
+let showBtn = document.querySelector('.cart-btn__btn');
+let overlay = document.querySelector('.overlay');
 
 function showCart() {
     sideCart.style.right = 0 + 'px';
-}
+    overlay.style.display = 'block';
+};
 
-// ADD TO CART CONTAINER
+function hideCart() {
+    sideCart.style.right = -410 + 'px';
+    overlay.style.display = 'none';
+};
+
+overlay.addEventListener('click', hideCart);
+showBtn.addEventListener('click', showCart);
+closeBtn.addEventListener('click', hideCart);
+
+
+
+// ADD TO CART CONTAINER ------------------
 function showItem() {
 
     if (CART.length > 1) {
         cartContainer.innerHTML = "";
     } else if (CART.length > 0) {
-        document.querySelector('.cart__header').innerHTML = 'YOUR SHOPPING CART';
+        document.querySelector('.cart__header').innerHTML = 'CART';
     };
 
     CART.forEach( e => {
@@ -185,16 +214,20 @@ function showItem() {
         cartImg.classList.add('cart__img');
         cartImg.src = e.img;
         cartArticle.appendChild(cartImg);
+
+        let cartTextContainer = document.createElement('div');
+        cartTextContainer.classList.add('cart__text-container');
+        cartArticle.appendChild(cartTextContainer);
     
         let cartProduct = document.createElement('p');
         cartProduct.classList.add('cart__product');
         cartProduct.innerHTML = e.product;
-        cartArticle.appendChild(cartProduct);
+        cartTextContainer.appendChild(cartProduct);
     
         let cartPrice = document.createElement('p');
         cartPrice.classList.add('cart__price');
-        cartPrice.innerHTML = e.price;
-        cartArticle.appendChild(cartPrice);
+        cartPrice.innerHTML = e.price + '€';
+        cartTextContainer.appendChild(cartPrice);
     });
 };
 

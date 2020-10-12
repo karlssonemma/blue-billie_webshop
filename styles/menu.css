@@ -1,0 +1,90 @@
+/* MENU */
+
+.menu-span {
+    font-size: 3rem;
+    font-family: 'Righteous';
+}
+
+.menu-toggler {
+    width: 100vw;
+    height: 80px;
+    padding: 0.5em;
+    border-top: .2px solid rgb(226, 226, 226);
+    border-bottom: .2px solid rgb(226, 226, 226);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+    top: 0;
+    z-index: 3;
+
+    background-color: white;
+}
+
+.menu-btn {
+    background-color: white;
+    border: none;
+    font-size: 4rem;
+    cursor: pointer;
+    letter-spacing: 0.5rem;
+
+    transition: 0.2s;
+}
+
+.menu-btn:focus {
+    outline: none;
+}
+
+.menu-btn:hover {
+    transform: scale(1.4);
+}
+
+.menu-btn__arrow {
+    width: 30px;
+    transform: rotate(270deg);
+    transition: 1s;
+    font-weight: 700;
+}
+
+
+.menu {
+    width: 100vw;
+    padding: 3rem;
+    box-shadow: 0px 1px 10px 2px rgb(161, 161, 161);
+    border-bottom: 1px solid rgb(226, 226, 226);
+
+    background-color: white;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+
+    transition: 1s;
+
+    z-index: 1;
+
+    position: relative;
+    top: -200px;
+}
+
+
+.menu__item {
+    transition: ease 0.5s;
+}
+
+.menu__link {
+    display: block;
+    font-size: 2rem;
+    padding: 0.5em;
+    color: black;
+    text-decoration: none;
+}
+
+.menu__link:hover {
+    transition: 0.5s;
+    color: lightgray;
+}
+
+

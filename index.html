@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200&family=Righteous&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/d88157749e.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./styles/header.css">
+    <link rel="stylesheet" href="./styles/menu.css">
     <link rel="stylesheet" href="./styles/grid.css">
     <link rel="stylesheet" href="./styles/cart.css">
     <script src="./js/main.js" type="module" defer></script>
@@ -15,7 +16,7 @@
 
 
 
-    <!-- HEADER -->
+<!-- HEADER -->
 <header>
     <div class="header">
 
@@ -32,9 +33,11 @@
         </div>
 
         
-        <div class="header__item cart-img">
-            <span></span>
-            <i class="fas fa-shopping-cart"></i>
+        <div class="header__item cart-btn__container">
+            <button class="cart-btn__btn">
+                <span class="cart-btn__number">1</span>
+                <img src="./img/icons/shopping-bag-outline.png" class="cart-btn__img" alt="">
+            </button>
         </div>
 
     </div>
@@ -47,15 +50,30 @@
     <!-- CART -->
     <div class="overlay"></div>
         <div class="cart">
-            <h2 class="cart__header">YOUR SHOPPING CART IS EMPTY :(</h2>
-            <button class="cart__close">X</button>
+
+            <div class="cart__container-head">
+                <h2 class="cart__header">NOTHING TO SEE HERE!</h2>
+                <button class="cart__close">X</button>
+            </div>
+
             <div class="cart__container-products">
             </div>
+
+            <div class="cart__container-total">
+                <p class="cart__tot-price">
+                    Total:
+                    <span class="cart__tot-price-output"></span>
+                </p>
+                <button class="checkout">GO TO CHECKOUT</button>
+            </div>
+
         </div>
     
         <!-- MENU -->
         <div class="menu-toggler">
-            <button class="menu-btn">MENU</button>
+            <button class="menu-btn">
+                <img src="./img/icons/arrow-pointing-left.png" alt="" class="menu-btn__arrow">
+            </button>
         </div>
 
         <div class="menu">
