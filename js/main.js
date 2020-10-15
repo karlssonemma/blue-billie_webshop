@@ -28,10 +28,6 @@ function showMenu() {
 
 menuBtn.addEventListener('click', showMenu);
 
-// CART ------------------
-let cartContainer = document.querySelector('.cart__container-products');
-let CART = [];
-
 
 // ELEMENT -------------------
 
@@ -99,6 +95,7 @@ for (let i = 0; i < EARRINGS.length; i++) {
     article.appendChild(addItem);
 };
 
+
 // BRACELETS
 
 for (let i = 0; i < BRACELETS.length; i++) {
@@ -132,6 +129,50 @@ for (let i = 0; i < BRACELETS.length; i++) {
 let numberOfItems = document.querySelector('.cart-btn__number');
 let totalOutput = document.querySelector('.cart__tot-price-output');
 
+// CART ------------------
+let cartContainer = document.querySelector('.cart__container-products');
+
+
+let CART = [];
+console.log(CART);
+
+let data = localStorage.getItem('cart');
+let returnedCart = JSON.parse(data);
+
+
+console.log(data);
+console.log(returnedCart);
+console.log(NECKLACES)
+
+if (data) {
+    CART = [...returnedCart];
+};
+
+console.log(CART);
+showItem();
+
+
+
+
+
+
+
+
+// STORE LOCAL DATA
+// function storeCart() {
+
+//     if (CART.length = 0) {
+//         CART = returnedCart;
+//     };
+// };
+
+
+// storeCart();
+
+
+
+
+
 
 // ADD TO CART-ARRAY ------------- 
 function addItem(e) {
@@ -158,18 +199,14 @@ function addItem(e) {
 
     showItem();
     showCart();
-
-    // SHOWS HOW MANY PRODUCTS THERE IS IN THE CART - IN HEAD.
-    numberOfItems.innerHTML = CART.length;
-
-    // SHOWS TOTAL PRICE IN SIDECART
-    let totalPrice = 0;
-
-    for (let i = 0; i < CART.length; i++) {
-        totalPrice += CART[i].price;
-        totalOutput.innerHTML = totalPrice + '€';
-    }
+    
 };
+
+
+
+
+
+
 
 
 
@@ -197,6 +234,9 @@ closeBtn.addEventListener('click', hideCart);
 
 // ADD TO CART CONTAINER ------------------
 function showItem() {
+
+    let cartString = JSON.stringify(CART);
+    localStorage.setItem('cart', cartString);
 
     if (CART.length > 1) {
         cartContainer.innerHTML = "";
@@ -229,6 +269,17 @@ function showItem() {
         cartPrice.innerHTML = e.price + '€';
         cartTextContainer.appendChild(cartPrice);
     });
+
+    // SHOWS HOW MANY PRODUCTS THERE IS IN THE CART - IN HEAD.
+    numberOfItems.innerHTML = CART.length;
+
+    // SHOWS TOTAL PRICE IN SIDECART
+    let totalPrice = 0;
+
+    for (let i = 0; i < CART.length; i++) {
+        totalPrice += CART[i].price;
+        totalOutput.innerHTML = totalPrice + '€';
+    }
 };
 
 // ADD TO CART BTNS
@@ -289,3 +340,6 @@ braceletBtn5.addEventListener('click', addItem);
     // <button class="grid-item__btn">ADD TO CART</button>
     // </article>
     // `;
+
+
+    export {CART};

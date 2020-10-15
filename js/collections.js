@@ -6,7 +6,7 @@ const NECKLACES = [
     {
         product: 'Collect Chain Silver',
         price: 98,
-        img: ['./img/necklaces/collect_chain_silver/collect-chain-silver.jpg'],
+        img: './img/necklaces/collect_chain_silver/collect-chain-silver.jpg',
         id: 'necklace0'
     },
     {
