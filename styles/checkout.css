@@ -6,24 +6,56 @@
 
 .checkout__container {
     width: 80vw;
-    height: 80vh;
+    height: auto;
     margin: auto;
     padding: 10em;
 
     display: flex;
     justify-content: space-between;
 
-    background-color: rgba(137, 43, 226, 0.295);
+    border: 1px solid black;
 }
 
 .container__products {
-    width: 500px;
-
-    background-color: rgb(139, 80, 80);
+    width: 100%;
+    padding: 2em;
 }
 
-.container__price {
-    width: 500px;
+.checkout-item {
+    width: 100%;
+    padding: 10em;
 
-    background-color: rgb(192, 53, 53);
+    display: grid;
+    grid-template-columns: 120px 40vw auto max-content;
+
+    border-bottom: 1px solid black;
+}
+
+.checkout-item__container {
+    display: flex;
+}
+.checkout-item__img {
+    width: 100%
+}
+
+.text-container {
+    padding-left: 8em;
+}
+
+.checkout-item__product, .checkout-item__price {
+    font-size: 2rem;
+}
+
+.delete-btn {
+    width: 40px;
+    height: 40px;
+
+    background-color: none;
+    border: none;
+
+    cursor: pointer;
+}
+
+.delete-btn:focus {
+    outline: none;
 }

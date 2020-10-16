@@ -25,7 +25,7 @@
 
 .grid-item {
     height: auto;
-    background-color: rgba(211, 211, 211, 0.445);
+    /* background-color: rgba(211, 211, 211, 0.445); */
 
     display: flex;
     flex-direction: column;
@@ -37,6 +37,11 @@
 
 .grid-item:hover {
     /* transform: scale(1.05); */
+}
+
+.item-container {
+    display: flex;
+    flex-direction: row;
 }
 
 .grid-item__product {
@@ -71,5 +76,5 @@
 }
 
 .grid-item__btn:hover {
-    border-bottom: 2px solid black;
+    color: yellow;
 }

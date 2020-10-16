@@ -109,21 +109,26 @@ for (let i = 0; i < BRACELETS.length; i++) {
     img.src = BRACELETS[i].img;
     article.appendChild(img);
 
+    // LA TILL IGÅR -- BÖR GÖRAS PÅ ALLA.
+    let container = document.createElement('div');
+    container.classList.add('item-container');
+    article.appendChild(container);
+
     let product = document.createElement('p');
     product.classList.add('grid-item__product');
     product.innerHTML = BRACELETS[i].product;
-    article.appendChild(product);
+    container.appendChild(product);
 
     let price = document.createElement('p');
     price.classList.add('grid-item__price');
     price.innerHTML = BRACELETS[i].price + '€';
-    article.appendChild(price);
+    container.appendChild(price);
 
     let addItem = document.createElement('button');
     addItem.innerHTML = 'ADD TO CART';
     addItem.classList.add('grid-item__btn');
     addItem.id = BRACELETS[i].id;
-    article.appendChild(addItem);
+    container.appendChild(addItem);
 };
 
 let numberOfItems = document.querySelector('.cart-btn__number');
@@ -342,4 +347,4 @@ braceletBtn5.addEventListener('click', addItem);
     // `;
 
 
-    export {CART};
+export {CART};

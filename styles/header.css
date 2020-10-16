@@ -42,6 +42,8 @@
     font-size: 12rem;
     padding: 0;
     
+    color: black;
+    text-decoration: none;
     background-color: transparent;
 }
 
@@ -103,7 +105,7 @@
 }
 
 .cart-btn__btn:hover {
-    border: .5px solid black;
+    border-bottom: .5px solid black;
 }
 
 .cart-btn__number {
