@@ -1,9 +1,21 @@
 
-* {
+/* HEAD */
+.shopping-cart-p {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
 
+    display: flex;
+    justify-content: center;
+}
+
+.shopping-cart-p p {
+    padding-top: 1em;
+    padding-bottom: 1em;
+    font-size: 4rem;
 }
 
 
+/* ITEMS */
 .checkout__container {
     width: 80vw;
     height: auto;
@@ -13,7 +25,7 @@
     display: flex;
     justify-content: space-between;
 
-    border: 1px solid black;
+    /* border: 1px solid black; */
 }
 
 .container__products {
@@ -23,12 +35,12 @@
 
 .checkout-item {
     width: 100%;
-    padding: 10em;
+    padding: 40px;
 
     display: grid;
-    grid-template-columns: 120px 40vw auto max-content;
+    grid-template-columns: 120px 40vw auto 30px;
 
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid rgb(221, 221, 221);
 }
 
 .checkout-item__container {
@@ -39,7 +51,11 @@
 }
 
 .text-container {
-    padding-left: 8em;
+    padding-left: 20px;
+}
+
+.checkout-item__price {
+    margin: auto;
 }
 
 .checkout-item__product, .checkout-item__price {
@@ -47,15 +63,84 @@
 }
 
 .delete-btn {
-    width: 40px;
-    height: 40px;
+    width: auto;
+    height: auto;
 
-    background-color: none;
+    background-color: transparent;
     border: none;
 
     cursor: pointer;
 }
 
+.delete-btn img {
+    width: 100%;
+}
+
 .delete-btn:focus {
     outline: none;
 }
+
+
+/* CONTINUE SHOPPING */
+.continue__container {
+    width: 80vw;
+    margin: auto;
+    padding-left: 10em;
+}
+
+.continue-shopping__link {
+    margin-top: 10em;
+
+    text-decoration: none;
+    color: black;
+    
+    display: block;
+}
+
+.continue-shopping__p {
+    font-size: 2rem;
+}
+
+.continue-shopping__p span img {
+    width: 20px;
+    margin-right: 10px;
+    transform: translate(-45deg);
+    
+}
+
+/* TOTAL */
+.total__container {
+    width: 80vw;
+    padding: 10em;
+    margin: auto;
+    text-align: center;
+}
+
+.total__container p {
+    font-size: 5rem;
+}
+
+.total__btn {
+    width: 400px;
+    padding: 1em;
+    margin-top: 1em;
+    border: 3px solid black;
+
+    font-size: 2rem;
+
+    background-color: white;
+    color: black;
+    text-decoration: none;
+    text-align: center;
+    font-family: 'Righteous', sans-serif;
+
+    cursor: pointer;
+    transition: .2s;
+}
+
+.total__btn:hover {
+    background-color: black;
+    color: white;
+}
+
+

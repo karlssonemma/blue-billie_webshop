@@ -8,15 +8,19 @@
     max-width: 100vw;
     overflow-x: hidden;
 }
+.grid-container {
+    position: relative;
+    top: -100px;
+}
 
 .grid {
-    padding: 20em;
+    padding-bottom: 20em;
     width: 100vw;
     margin: auto;
 
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    /* gap: 20px; */
 }
 
 .grid-necklaces {
@@ -42,16 +46,17 @@
 .item-container {
     display: flex;
     flex-direction: row;
+    padding-top: 4em;
 }
 
 .grid-item__product {
     font-size: 1.8rem;
-    padding-top: 1em;
+
 }
 
 .grid-item__price {
     font-size: 1.5rem;
-    padding: 0.5em;
+
 }
 
 .grid-item__img {
@@ -76,5 +81,17 @@
 }
 
 .grid-item__btn:hover {
-    color: yellow;
+    color: rgb(159, 238, 13);
+}
+
+.item-description {
+    font-size: 1.4rem;
+    color: rgb(150, 150, 150);
+    
+}
+
+.description-overlay {
+    background-color: lightgreen;
+    width: 100%;
+    position: absolute;
 }

@@ -51,13 +51,19 @@
     font-family: 'Righteous', sans-serif;
 }
 
+
+.header-items-right {
+    display: flex;
+}
+
 .search__input {
     width: 25rem;
+    padding: 1em;
     border: none;
     border-bottom: 1px solid black;
 
     background-color: transparent;
-    font-size: 3rem;
+    font-size: 1.5rem;
 }
 
 .search__input:focus {
@@ -67,6 +73,9 @@
 .search__submit {
     background-color: transparent;
     border: none;
+
+    position: relative;
+    right: 30px;
 }
 
 .search__submit i {
@@ -83,6 +92,7 @@
 
 .cart-btn__container {
     height: max-content;
+    margin-left: 30em;
 
     display: flex;
     align-items: center;
@@ -91,7 +101,7 @@
 }
 
 .cart-btn__btn {
-    padding: 8em;
+    padding: 20em;
 
     background-color: transparent;
     border: none;

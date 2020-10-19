@@ -36,7 +36,6 @@
 
     box-shadow: 0px 1px 10px 2px rgb(161, 161, 161);
 
-    
     transition: 1s;
 }
 
@@ -44,6 +43,7 @@
     width: 100%;
     margin-bottom: 10em;
     padding-bottom: 5em;
+
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -94,7 +94,7 @@
     height: max-content;
     margin-top: 10em;
 
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: center;
 

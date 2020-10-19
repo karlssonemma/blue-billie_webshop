@@ -19,7 +19,7 @@ function showMenu() {
         menuBtnImg.style.transform = 'rotate(-270deg)';
 
     } else {
-        menu.style.top = -210 + 'px';
+        menu.style.top = -250 + 'px';
         menuBtnImg.style.transform = 'rotate(270deg)';
     };
 
@@ -48,21 +48,20 @@ for (let i = 0; i < NECKLACES.length; i++) {
     img.src = NECKLACES[i].img;
     article.appendChild(img);
 
+    let container = document.createElement('div');
+    container.classList.add('item-container');
+    article.appendChild(container);
+
     let product = document.createElement('p');
     product.classList.add('grid-item__product');
-    product.innerHTML = NECKLACES[i].product;
-    article.appendChild(product);
-
-    let price = document.createElement('p');
-    price.classList.add('grid-item__price');
-    price.innerHTML = NECKLACES[i].price + '€';
-    article.appendChild(price);
+    product.innerHTML = NECKLACES[i].product + ' / ' + NECKLACES[i].price + '€ / ';
+    container.appendChild(product);
 
     let addItem = document.createElement('button');
     addItem.innerHTML = 'ADD TO CART';
     addItem.classList.add('grid-item__btn');
     addItem.id = NECKLACES[i].id;
-    article.appendChild(addItem);
+    container.appendChild(addItem);
 };
 
 // EARRINGS
@@ -78,21 +77,20 @@ for (let i = 0; i < EARRINGS.length; i++) {
     img.src = EARRINGS[i].img;
     article.appendChild(img);
 
+    let container = document.createElement('div');
+    container.classList.add('item-container');
+    article.appendChild(container);
+
     let product = document.createElement('p');
     product.classList.add('grid-item__product');
-    product.innerHTML = EARRINGS[i].product;
-    article.appendChild(product);
-
-    let price = document.createElement('p');
-    price.classList.add('grid-item__price');
-    price.innerHTML = EARRINGS[i].price + '€';
-    article.appendChild(price);
+    product.innerHTML = EARRINGS[i].product + ' / ' + EARRINGS[i].price + '€ / ';
+    container.appendChild(product);
 
     let addItem = document.createElement('button');
     addItem.innerHTML = 'ADD TO CART';
     addItem.classList.add('grid-item__btn');
     addItem.id = EARRINGS[i].id;
-    article.appendChild(addItem);
+    container.appendChild(addItem);
 };
 
 
@@ -116,13 +114,13 @@ for (let i = 0; i < BRACELETS.length; i++) {
 
     let product = document.createElement('p');
     product.classList.add('grid-item__product');
-    product.innerHTML = BRACELETS[i].product;
+    product.innerHTML = BRACELETS[i].product + ' / ' + BRACELETS[i].price + '€ / ';
     container.appendChild(product);
 
-    let price = document.createElement('p');
-    price.classList.add('grid-item__price');
-    price.innerHTML = BRACELETS[i].price + '€';
-    container.appendChild(price);
+    // let price = document.createElement('p');
+    // price.classList.add('grid-item__price');
+    // price.innerHTML = BRACELETS[i].price + '€';
+    // container.appendChild(price);
 
     let addItem = document.createElement('button');
     addItem.innerHTML = 'ADD TO CART';
@@ -139,48 +137,22 @@ let cartContainer = document.querySelector('.cart__container-products');
 
 
 let CART = [];
-console.log(CART);
 
 let data = localStorage.getItem('cart');
 let returnedCart = JSON.parse(data);
 
 
-console.log(data);
-console.log(returnedCart);
-console.log(NECKLACES)
-
 if (data) {
     CART = [...returnedCart];
 };
 
-console.log(CART);
-showItem();
-
-
-
-
-
-
-
-
-// STORE LOCAL DATA
-// function storeCart() {
-
-//     if (CART.length = 0) {
-//         CART = returnedCart;
-//     };
-// };
-
-
-// storeCart();
-
-
-
-
+// HAS TO BE RUN IN BEGINNING TO DISPLAY ITEMS IN CART UPON SIDE REFRESH.
+addToCart();
 
 
 // ADD TO CART-ARRAY ------------- 
-function addItem(e) {
+function addToArray(e) {
+
     for (let i = 0; i < BRACELETS.length; i++) {
 
         if (BRACELETS[i].id === e.target.id) {
@@ -202,16 +174,9 @@ function addItem(e) {
         };  
     };
 
-    showItem();
+    addToCart();
     showCart();
-    
 };
-
-
-
-
-
-
 
 
 
@@ -220,8 +185,15 @@ let sideCart = document.querySelector('.cart');
 let closeBtn = document.querySelector('.cart__close');
 let showBtn = document.querySelector('.cart-btn__btn');
 let overlay = document.querySelector('.overlay');
+let containerTotal = document.querySelector('.cart__container-total');
 
 function showCart() {
+
+    // SHOWS CHECKOUT CONTAINER.
+    if (CART.length > 0) {
+        containerTotal.style.display = 'flex';
+    };
+
     sideCart.style.right = 0 + 'px';
     overlay.style.display = 'block';
 };
@@ -238,14 +210,14 @@ closeBtn.addEventListener('click', hideCart);
 
 
 // ADD TO CART CONTAINER ------------------
-function showItem() {
+function addToCart() {
 
     let cartString = JSON.stringify(CART);
     localStorage.setItem('cart', cartString);
 
-    if (CART.length > 1) {
-        cartContainer.innerHTML = "";
-    } else if (CART.length > 0) {
+    cartContainer.innerHTML = "";
+    
+    if (CART.length > 0) {
         document.querySelector('.cart__header').innerHTML = 'CART';
     };
 
@@ -278,7 +250,7 @@ function showItem() {
     // SHOWS HOW MANY PRODUCTS THERE IS IN THE CART - IN HEAD.
     numberOfItems.innerHTML = CART.length;
 
-    // SHOWS TOTAL PRICE IN SIDECART
+    // SHOWS TOTAL PRICE IN CART
     let totalPrice = 0;
 
     for (let i = 0; i < CART.length; i++) {
@@ -311,40 +283,26 @@ let braceletBtn5 = document.querySelector('#bracelet5');
 
 
 // EVENT LISTENERS FOR ADD TO CART
-necklaceBtn0.addEventListener('click', addItem);
-necklaceBtn1.addEventListener('click', addItem);
-necklaceBtn2.addEventListener('click', addItem);
-necklaceBtn3.addEventListener('click', addItem);
-necklaceBtn4.addEventListener('click', addItem);
-necklaceBtn5.addEventListener('click', addItem);
+necklaceBtn1.addEventListener('click', addToArray);
+necklaceBtn2.addEventListener('click', addToArray);
+necklaceBtn0.addEventListener('click', addToArray);
+necklaceBtn3.addEventListener('click', addToArray);
+necklaceBtn4.addEventListener('click', addToArray);
+necklaceBtn5.addEventListener('click', addToArray);
 
-earringsBtn0.addEventListener('click', addItem);
-earringsBtn1.addEventListener('click', addItem);
-earringsBtn2.addEventListener('click', addItem);
-earringsBtn3.addEventListener('click', addItem);
-earringsBtn4.addEventListener('click', addItem);
-earringsBtn5.addEventListener('click', addItem);
+earringsBtn0.addEventListener('click', addToArray);
+earringsBtn1.addEventListener('click', addToArray);
+earringsBtn2.addEventListener('click', addToArray);
+earringsBtn3.addEventListener('click', addToArray);
+earringsBtn4.addEventListener('click', addToArray);
+earringsBtn5.addEventListener('click', addToArray);
 
-braceletBtn0.addEventListener('click', addItem);
-braceletBtn1.addEventListener('click', addItem);
-braceletBtn2.addEventListener('click', addItem);
-braceletBtn3.addEventListener('click', addItem);
-braceletBtn4.addEventListener('click', addItem);
-braceletBtn5.addEventListener('click', addItem);
-
-
-
-
-// BRACELETS.forEach(e => {
-
-    // gridBracelets.innerHTML += `
-    // <article class="grid-item">
-    // <img src="${e.img}" class="grid-item__img">
-    // <p class="grid-item__product">${e.product}</p>
-    // <p class="grid-item__price">${e.price}</p>
-    // <button class="grid-item__btn">ADD TO CART</button>
-    // </article>
-    // `;
+braceletBtn0.addEventListener('click', addToArray);
+braceletBtn1.addEventListener('click', addToArray);
+braceletBtn2.addEventListener('click', addToArray);
+braceletBtn3.addEventListener('click', addToArray);
+braceletBtn4.addEventListener('click', addToArray);
+braceletBtn5.addEventListener('click', addToArray);
 
 
 export {CART};
