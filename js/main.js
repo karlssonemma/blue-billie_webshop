@@ -132,6 +132,7 @@ for (let i = 0; i < BRACELETS.length; i++) {
 let numberOfItems = document.querySelector('.cart-btn__number');
 let totalOutput = document.querySelector('.cart__tot-price-output');
 
+
 // CART ------------------
 let cartContainer = document.querySelector('.cart__container-products');
 
@@ -146,8 +147,115 @@ if (data) {
     CART = [...returnedCart];
 };
 
-// HAS TO BE RUN IN BEGINNING TO DISPLAY ITEMS IN CART UPON SIDE REFRESH.
+// HAS TO BE RUN IN BEGINNING TO DISPLAY ITEMS IN CART UPON SIDE REFRESH. MAYBE??
 addToCart();
+
+
+
+
+
+// SEARCH ------------------
+
+let searchInput = document.querySelector('.search__input');
+let searchBtn = document.querySelector('.search__submit');
+let gridNew = document.querySelector('.grid-new');
+
+
+
+
+
+// NEW FOR TUESDAY ----- NOT DONE YET
+
+function filterArray() {
+
+    let input = searchInput.value;
+    console.log(input);
+
+    const NEW_ARRAY = [];
+
+    for (let i = 0; i < NECKLACES.length; i++) {
+
+        let name = NECKLACES[i].product;
+        let string = name.toLowerCase();
+
+
+        if (string.includes(searchInput.value)) {
+            NEW_ARRAY.push(NECKLACES[i]);
+        };
+    };
+
+    for (let i = 0; i < EARRINGS.length; i++) {
+
+        let name = EARRINGS[i].product;
+        let string = name.toLowerCase();
+
+
+        if (string.includes(searchInput.value)) {
+            NEW_ARRAY.push(EARRINGS[i]);
+        };
+    };
+
+    for (let i = 0; i < BRACELETS.length; i++) {
+
+        let name = BRACELETS[i].product;
+        let string = name.toLowerCase();
+
+
+        if (string.includes(searchInput.value)) {
+            NEW_ARRAY.push(BRACELETS[i]);
+
+        };
+    };
+
+    gridNew.innerHTML = "";
+    gridNew.style.display = 'grid';
+    gridNecklaces.style.display = 'none';
+    gridBracelets.style.display = 'none';
+    gridEarrings.style.display = 'none';
+
+    for (let i = 0; i < NEW_ARRAY.length; i++) {
+
+        let article = document.createElement('article');
+        article.classList.add('grid-item');
+        gridNew.appendChild(article);
+    
+        let img = document.createElement('img');
+        img.classList.add('grid-item__img');
+        img.src = NEW_ARRAY[i].img;
+        article.appendChild(img);
+    
+        let container = document.createElement('div');
+        container.classList.add('item-container');
+        article.appendChild(container);
+    
+        let product = document.createElement('p');
+        product.classList.add('grid-item__product');
+        product.innerHTML = NEW_ARRAY[i].product + ' / ' + NEW_ARRAY[i].price + '€ / ';
+        container.appendChild(product);
+    
+        let addItem = document.createElement('button');
+        addItem.innerHTML = 'ADD TO CART';
+        addItem.classList.add('grid-item__btn');
+        addItem.id = NEW_ARRAY[i].id;
+        container.appendChild(addItem);
+    };
+
+    if (searchInput.value == null) {
+        gridNecklaces.style.display = 'grid';
+        gridEarrings.style.display = 'grid';
+        gridBracelets.style.display = 'grid';
+        gridNew.style.display = 'none';
+    };
+};
+
+searchBtn.addEventListener('click', filterArray);
+document.addEventListener('keyup', filterArray);
+
+
+
+
+
+
 
 
 // ADD TO CART-ARRAY ------------- 

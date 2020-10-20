@@ -95,3 +95,7 @@
     width: 100%;
     position: absolute;
 }
+
+.grid-new {
+    background-color: lightgreen;
+}

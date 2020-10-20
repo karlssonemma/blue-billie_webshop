@@ -60,12 +60,17 @@ function showItems() {
         btn.addEventListener('click', deleteItem);
     };
 
+    // SHOWS TOTAL PRICE
     let totalPrice = 0;
 
-    for (let i = 0; i < CART.length; i++) {
-        totalPrice += CART[i].price;
-        totalOutput.innerHTML = totalPrice + '€';
-    }
+    if (CART.length > 0) {
+
+        for (let i = 0; i < CART.length; i++) {
+            totalPrice += CART[i].price;
+        }
+    };
+
+    totalOutput.innerHTML = totalPrice + '€';
 };
 
 // DELETE FUNCTION
@@ -75,14 +80,13 @@ function deleteItem(e) {
         
         if (e.target.id === CART[i].id) {
 
-            let itemIndex = CART.indexOf(CART[i]);
-
-            CART.splice(itemIndex, 1);
-
-            showItems();
+            // let itemIndex = CART.indexOf(CART[i]);
+            CART.splice(i, 1);
 
             let cartString = JSON.stringify(CART);
             localStorage.setItem('cart', cartString);
+
+            showItems();
         };
     };
 };
