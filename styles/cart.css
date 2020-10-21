@@ -41,7 +41,7 @@
 
 .cart__container-head {
     width: 100%;
-    margin-bottom: 10em;
+    margin-bottom: 30px;
     padding-bottom: 5em;
 
     display: flex;
@@ -53,7 +53,6 @@
 }
 
 .cart__header {
-    width: max-content;
     font-size: 2.5rem;
 }
 
@@ -64,10 +63,9 @@
     overflow: scroll;
 }
 
-
 .cart__article {
     width: 100%;
-    margin-bottom: 10em;
+    margin-bottom: 20px;
 
     display: flex;
 }
@@ -77,7 +75,7 @@
 }
 
 .cart__text-container {
-    margin-left: 19em;
+    margin-left: 12px;
 }
 
 .cart__price {
@@ -92,7 +90,8 @@
 .cart__container-total {
     width: 100%;
     height: max-content;
-    margin-top: 10em;
+    margin-top: 30px;
+    padding-top: 7em;
 
     display: none;
     flex-direction: column;
@@ -105,7 +104,6 @@
 }
 
 .cart__tot-price {
-    padding-top: 1em;
     font-size: 2rem;
 }
 
@@ -115,7 +113,7 @@
 
 .checkout {
     padding: 1em;
-    margin-top: 1em;
+    margin-top: 20px;
     border: 3px solid black;
 
     font-size: 2rem;
@@ -129,7 +127,6 @@
     cursor: pointer;
     transition: .2s;
 }
-
 
 .checkout:hover {
     background-color: black;
@@ -159,21 +156,4 @@
 
 .cart__close:hover {
     transform: scale(1.2);
-}
-
-#topx, #bottomx {
-    background-color: black;
-    width: 100%;
-    height: 2px;
-    position: relative;
-}
-
-#topx {
-    transform: rotate(45deg);
-
-}
-
-#bottomx {
-    transform: rotate(-45deg);
-
 }

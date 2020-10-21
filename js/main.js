@@ -1,16 +1,13 @@
 import {NECKLACES, EARRINGS, BRACELETS} from './collections.js';
 
 
-// MENU ------------------
+// --------------------------------SHOW MENU FUNCTION
 
 let menu = document.querySelector('.menu');
 let menuBtn = document.querySelector('.menu-btn');
 let menuBtnImg = document.querySelector('.menu-btn__arrow');
 
-
 let isTrue = true;
-
-// SHOW MENU FUNCTION ----------------
 
 function showMenu() {
     
@@ -26,17 +23,23 @@ function showMenu() {
     isTrue = !isTrue;
 };
 
+// EVENT-LISTENERS MENU
+
 menuBtn.addEventListener('click', showMenu);
 
+let menuLink = document.getElementsByClassName('menu__link');
 
-// ELEMENT -------------------
+for (let link of menuLink) {
+    link.addEventListener('click', showMenu);
+}
+
+// ----------------------------------CREATES PRODUCTS IN GRID
 
 let gridNecklaces = document.querySelector('.grid-necklaces');
 let gridEarrings = document.querySelector('.grid-earrings');
 let gridBracelets = document.querySelector('.grid-bracelets');
 
 // NECKLACES
-
 for (let i = 0; i < NECKLACES.length; i++) {
 
     let article = document.createElement('article');
@@ -52,7 +55,7 @@ for (let i = 0; i < NECKLACES.length; i++) {
     container.classList.add('item-container');
     article.appendChild(container);
 
-    let product = document.createElement('p');
+    let product = document.createElement('h3');
     product.classList.add('grid-item__product');
     product.innerHTML = NECKLACES[i].product + ' / ' + NECKLACES[i].price + '€ / ';
     container.appendChild(product);
@@ -62,10 +65,14 @@ for (let i = 0; i < NECKLACES.length; i++) {
     addItem.classList.add('grid-item__btn');
     addItem.id = NECKLACES[i].id;
     container.appendChild(addItem);
+
+    // let description = document.createElement('p');
+    // description.classList.add('grid-item__description');
+    // description.innerHTML = NECKLACES[i].description;
+    // article.appendChild(description);
 };
 
 // EARRINGS
-
 for (let i = 0; i < EARRINGS.length; i++) {
 
     let article = document.createElement('article');
@@ -77,11 +84,15 @@ for (let i = 0; i < EARRINGS.length; i++) {
     img.src = EARRINGS[i].img;
     article.appendChild(img);
 
+    // let overlay = document.createElement('div');
+    // overlay.classList.add('description-overlay');
+    // article.appendChild(overlay);
+
     let container = document.createElement('div');
     container.classList.add('item-container');
     article.appendChild(container);
 
-    let product = document.createElement('p');
+    let product = document.createElement('h3');
     product.classList.add('grid-item__product');
     product.innerHTML = EARRINGS[i].product + ' / ' + EARRINGS[i].price + '€ / ';
     container.appendChild(product);
@@ -91,11 +102,14 @@ for (let i = 0; i < EARRINGS.length; i++) {
     addItem.classList.add('grid-item__btn');
     addItem.id = EARRINGS[i].id;
     container.appendChild(addItem);
+
+    // let description = document.createElement('p');
+    // description.classList.add('grid-item__description');
+    // description.innerHTML = EARRINGS[i].description;
+    // article.appendChild(description);
 };
 
-
 // BRACELETS
-
 for (let i = 0; i < BRACELETS.length; i++) {
 
     let article = document.createElement('article');
@@ -107,20 +121,14 @@ for (let i = 0; i < BRACELETS.length; i++) {
     img.src = BRACELETS[i].img;
     article.appendChild(img);
 
-    // LA TILL IGÅR -- BÖR GÖRAS PÅ ALLA.
     let container = document.createElement('div');
     container.classList.add('item-container');
     article.appendChild(container);
 
-    let product = document.createElement('p');
+    let product = document.createElement('h3');
     product.classList.add('grid-item__product');
     product.innerHTML = BRACELETS[i].product + ' / ' + BRACELETS[i].price + '€ / ';
     container.appendChild(product);
-
-    // let price = document.createElement('p');
-    // price.classList.add('grid-item__price');
-    // price.innerHTML = BRACELETS[i].price + '€';
-    // container.appendChild(price);
 
     let addItem = document.createElement('button');
     addItem.innerHTML = 'ADD TO CART';
@@ -129,11 +137,20 @@ for (let i = 0; i < BRACELETS.length; i++) {
     container.appendChild(addItem);
 };
 
+// EVENT-LISTENERS FOR addToArray
+let addToCartBtns = document.getElementsByClassName('grid-item__btn');
+
+for (let btn of addToCartBtns) {
+    btn.addEventListener('click', addToArray);
+};
+
+// -------------------------------------HAS TO BE OVER CART
 let numberOfItems = document.querySelector('.cart-btn__number');
 let totalOutput = document.querySelector('.cart__tot-price-output');
 
 
-// CART ------------------
+// --------------------------------------CART
+
 let cartContainer = document.querySelector('.cart__container-products');
 
 
@@ -151,10 +168,7 @@ if (data) {
 addToCart();
 
 
-
-
-
-// SEARCH ------------------
+// -------------------------------------SEARCH-FUNCTION
 
 let searchInput = document.querySelector('.search__input');
 let searchBtn = document.querySelector('.search__submit');
@@ -162,14 +176,10 @@ let gridNew = document.querySelector('.grid-new');
 
 
 
-
-
-// NEW FOR TUESDAY ----- NOT DONE YET
-
 function filterArray() {
 
-    let input = searchInput.value;
-    console.log(input);
+    let inputValue = searchInput.value;
+    let input = inputValue.toLowerCase();
 
     const NEW_ARRAY = [];
 
@@ -178,8 +188,7 @@ function filterArray() {
         let name = NECKLACES[i].product;
         let string = name.toLowerCase();
 
-
-        if (string.includes(searchInput.value)) {
+        if (string.includes(input)) {
             NEW_ARRAY.push(NECKLACES[i]);
         };
     };
@@ -189,8 +198,7 @@ function filterArray() {
         let name = EARRINGS[i].product;
         let string = name.toLowerCase();
 
-
-        if (string.includes(searchInput.value)) {
+        if (string.includes(input)) {
             NEW_ARRAY.push(EARRINGS[i]);
         };
     };
@@ -200,10 +208,8 @@ function filterArray() {
         let name = BRACELETS[i].product;
         let string = name.toLowerCase();
 
-
-        if (string.includes(searchInput.value)) {
+        if (string.includes(input)) {
             NEW_ARRAY.push(BRACELETS[i]);
-
         };
     };
 
@@ -228,7 +234,7 @@ function filterArray() {
         container.classList.add('item-container');
         article.appendChild(container);
     
-        let product = document.createElement('p');
+        let product = document.createElement('h3');
         product.classList.add('grid-item__product');
         product.innerHTML = NEW_ARRAY[i].product + ' / ' + NEW_ARRAY[i].price + '€ / ';
         container.appendChild(product);
@@ -240,7 +246,14 @@ function filterArray() {
         container.appendChild(addItem);
     };
 
-    if (searchInput.value == null) {
+    // CREATES BTNS FOR ITEMS IN NEW CART.
+    let btns = document.getElementsByClassName('grid-item__btn');
+
+    for (let btn of btns) {
+        btn.addEventListener('click', addToArray);
+    };
+
+    if (input == "") {
         gridNecklaces.style.display = 'grid';
         gridEarrings.style.display = 'grid';
         gridBracelets.style.display = 'grid';
@@ -252,13 +265,7 @@ searchBtn.addEventListener('click', filterArray);
 document.addEventListener('keyup', filterArray);
 
 
-
-
-
-
-
-
-// ADD TO CART-ARRAY ------------- 
+// -----------------------------------------ADD TO CART-ARRAY
 function addToArray(e) {
 
     for (let i = 0; i < BRACELETS.length; i++) {
@@ -287,8 +294,8 @@ function addToArray(e) {
 };
 
 
+// -----------------------------------------SHOW/HIDE CART FUNCTIONS
 
-// SHOW/HIDE CART FUNCTIONS -----------------
 let sideCart = document.querySelector('.cart');
 let closeBtn = document.querySelector('.cart__close');
 let showBtn = document.querySelector('.cart-btn__btn');
@@ -297,7 +304,7 @@ let containerTotal = document.querySelector('.cart__container-total');
 
 function showCart() {
 
-    // SHOWS CHECKOUT CONTAINER.
+    // DISPLAYS TOTAL-CONTAINER IN CART.
     if (CART.length > 0) {
         containerTotal.style.display = 'flex';
     };
@@ -317,9 +324,11 @@ closeBtn.addEventListener('click', hideCart);
 
 
 
-// ADD TO CART CONTAINER ------------------
+// ---------------------------------------ADD TO CART CONTAINER
+
 function addToCart() {
 
+    // PUSH TO LOCAL STORAGE
     let cartString = JSON.stringify(CART);
     localStorage.setItem('cart', cartString);
 
@@ -344,7 +353,7 @@ function addToCart() {
         cartTextContainer.classList.add('cart__text-container');
         cartArticle.appendChild(cartTextContainer);
     
-        let cartProduct = document.createElement('p');
+        let cartProduct = document.createElement('h4');
         cartProduct.classList.add('cart__product');
         cartProduct.innerHTML = e.product;
         cartTextContainer.appendChild(cartProduct);
@@ -364,53 +373,53 @@ function addToCart() {
     for (let i = 0; i < CART.length; i++) {
         totalPrice += CART[i].price;
         totalOutput.innerHTML = totalPrice + '€';
-    }
+    };
 };
 
-// ADD TO CART BTNS
-let necklaceBtn0 = document.querySelector('#necklace0');
-let necklaceBtn1 = document.querySelector('#necklace1');
-let necklaceBtn2 = document.querySelector('#necklace2');
-let necklaceBtn3 = document.querySelector('#necklace3');
-let necklaceBtn4 = document.querySelector('#necklace4');
-let necklaceBtn5 = document.querySelector('#necklace5');
+// // ADD TO CART BTNS
+// let necklaceBtn0 = document.querySelector('#necklace0');
+// let necklaceBtn1 = document.querySelector('#necklace1');
+// let necklaceBtn2 = document.querySelector('#necklace2');
+// let necklaceBtn3 = document.querySelector('#necklace3');
+// let necklaceBtn4 = document.querySelector('#necklace4');
+// let necklaceBtn5 = document.querySelector('#necklace5');
 
-let earringsBtn0 = document.querySelector('#earrings0');
-let earringsBtn1 = document.querySelector('#earrings1');
-let earringsBtn2 = document.querySelector('#earrings2');
-let earringsBtn3 = document.querySelector('#earrings3');
-let earringsBtn4 = document.querySelector('#earrings4');
-let earringsBtn5 = document.querySelector('#earrings5');
+// let earringsBtn0 = document.querySelector('#earrings0');
+// let earringsBtn1 = document.querySelector('#earrings1');
+// let earringsBtn2 = document.querySelector('#earrings2');
+// let earringsBtn3 = document.querySelector('#earrings3');
+// let earringsBtn4 = document.querySelector('#earrings4');
+// let earringsBtn5 = document.querySelector('#earrings5');
 
-let braceletBtn0 = document.querySelector('#bracelet0');
-let braceletBtn1 = document.querySelector('#bracelet1');
-let braceletBtn2 = document.querySelector('#bracelet2');
-let braceletBtn3 = document.querySelector('#bracelet3');
-let braceletBtn4 = document.querySelector('#bracelet4');
-let braceletBtn5 = document.querySelector('#bracelet5');
+// let braceletBtn0 = document.querySelector('#bracelet0');
+// let braceletBtn1 = document.querySelector('#bracelet1');
+// let braceletBtn2 = document.querySelector('#bracelet2');
+// let braceletBtn3 = document.querySelector('#bracelet3');
+// let braceletBtn4 = document.querySelector('#bracelet4');
+// let braceletBtn5 = document.querySelector('#bracelet5');
 
 
-// EVENT LISTENERS FOR ADD TO CART
-necklaceBtn1.addEventListener('click', addToArray);
-necklaceBtn2.addEventListener('click', addToArray);
-necklaceBtn0.addEventListener('click', addToArray);
-necklaceBtn3.addEventListener('click', addToArray);
-necklaceBtn4.addEventListener('click', addToArray);
-necklaceBtn5.addEventListener('click', addToArray);
+// // EVENT LISTENERS FOR ADD TO CART
+// necklaceBtn1.addEventListener('click', addToArray);
+// necklaceBtn2.addEventListener('click', addToArray);
+// necklaceBtn0.addEventListener('click', addToArray);
+// necklaceBtn3.addEventListener('click', addToArray);
+// necklaceBtn4.addEventListener('click', addToArray);
+// necklaceBtn5.addEventListener('click', addToArray);
 
-earringsBtn0.addEventListener('click', addToArray);
-earringsBtn1.addEventListener('click', addToArray);
-earringsBtn2.addEventListener('click', addToArray);
-earringsBtn3.addEventListener('click', addToArray);
-earringsBtn4.addEventListener('click', addToArray);
-earringsBtn5.addEventListener('click', addToArray);
+// earringsBtn0.addEventListener('click', addToArray);
+// earringsBtn1.addEventListener('click', addToArray);
+// earringsBtn2.addEventListener('click', addToArray);
+// earringsBtn3.addEventListener('click', addToArray);
+// earringsBtn4.addEventListener('click', addToArray);
+// earringsBtn5.addEventListener('click', addToArray);
 
-braceletBtn0.addEventListener('click', addToArray);
-braceletBtn1.addEventListener('click', addToArray);
-braceletBtn2.addEventListener('click', addToArray);
-braceletBtn3.addEventListener('click', addToArray);
-braceletBtn4.addEventListener('click', addToArray);
-braceletBtn5.addEventListener('click', addToArray);
+// braceletBtn0.addEventListener('click', addToArray);
+// braceletBtn1.addEventListener('click', addToArray);
+// braceletBtn2.addEventListener('click', addToArray);
+// braceletBtn3.addEventListener('click', addToArray);
+// braceletBtn4.addEventListener('click', addToArray);
+// braceletBtn5.addEventListener('click', addToArray);
 
 
 export {CART};

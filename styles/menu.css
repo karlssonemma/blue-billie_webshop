@@ -1,16 +1,9 @@
-/* MENU */
-
-.menu-span {
-    font-size: 3rem;
-    font-family: 'Righteous';
-}
-
 .menu-toggler {
     width: 100vw;
     height: 80px;
-    padding: 0.5em;
+    padding: 10px;
     border-top: .2px solid rgb(226, 226, 226);
-    /* border-bottom: .2px solid rgb(226, 226, 226); */
+    border-bottom: .2px solid rgb(226, 226, 226);
 
     display: flex;
     justify-content: center;
@@ -18,13 +11,14 @@
 
     position: relative;
     top: 0;
+
     z-index: 3;
 
-    background-color: #ECECEC;
+    background-color: #ffffff;
 }
 
 .menu-btn {
-    background-color: #ECECEC;
+    background-color: white;
     border: none;
     font-size: 4rem;
     cursor: pointer;
@@ -46,16 +40,11 @@
     transform: rotate(270deg);
     transition: 1s;
     font-weight: 700;
-
 }
-
-
-
 
 .menu {
     width: 100vw;
-    padding: 3rem;
-    /* box-shadow: 0px 1px 10px 2px rgb(161, 161, 161); */
+    padding: 30px;
     border-bottom: 1px solid rgb(226, 226, 226);
 
     background-color: rgb(0, 0, 0);
@@ -72,15 +61,12 @@
     top: -250px;
 }
 
-
-.menu__item {
-    transition: ease 0.5s;
-}
-
 .menu__link {
-    display: block;
-    font-size: 2.3rem;
     padding: 0.5em;
+
+    display: block;
+
+    font-size: 2.3rem;
     color: rgb(255, 255, 255);
     text-decoration: none;
     letter-spacing: 1px;

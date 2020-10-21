@@ -21,24 +21,21 @@
     <div class="header">
 
         <a class="header__item h-logo" href="./index.html">
-            <p>BLUE BILLIE</p>
+            <h1>BLUE BILLIE</h1>
         </a>
 
         <div class="header-items-right">
             <div class="header__item search">
-                <input type="text" class="search__input">
+                <input type="text" class="search__input" name="search">
                 <button class="search__submit">
-                    <i class="fas fa-search"></i>
+                    <i class="fas fa-search" alt="search"></i>
                 </button>
             </div>
-
             
-            <div class="header__item cart-btn__container">
-                <button class="cart-btn__btn">
-                    <span class="cart-btn__number">0</span>
-                    <img src="./img/icons/shopping-bag-outline.png" class="cart-btn__img" alt="">
-                </button>
-            </div>
+            <button class="cart-btn__btn header__item">
+                <span class="cart-btn__number">0</span>
+                <img src="./img/icons/shopping-bag-outline.png" class="cart-btn__img" alt="shopping cart button.">
+            </button>
         </div>
 
     </div>
@@ -51,8 +48,6 @@
             <div class="cart__container-head">
                 <h2 class="cart__header">NOTHING TO SEE HERE!</h2>
                 <button class="cart__close">
-                    <!-- <div id="topx"></div>
-                    <div id="bottomx"></div> -->
                     <img src="./img/icons/682349_button_512x512.png" alt="">
                 </button>
             </div>
@@ -73,24 +68,14 @@
         <!-- MENU -->
         <div class="menu-toggler">
             <button class="menu-btn">
-                <img src="./img/icons/arrow-pointing-left.png" alt="" class="menu-btn__arrow">
+                <img src="./img/icons/arrow-pointing-left.png" alt="menu button" class="menu-btn__arrow">
             </button>
         </div>
 
         <div class="menu">
-
-            <div class="menu__item">
-                <a class="menu__link" href="#necklaces">Necklaces</a>
-            </div>
-
-            <div class="menu__item">
-                <a class="menu__link" href="#earrings">Earrings</a>
-            </div>
-
-            <div class="menu__item">
-                <a class="menu__link" href="#bracelets">Bracelets</a>
-            </div>
-
+            <a class="menu__link" href="#necklaces">Necklaces</a>
+            <a class="menu__link" href="#earrings">Earrings</a>
+            <a class="menu__link" href="#bracelets">Bracelets</a>
         </div>
     
 

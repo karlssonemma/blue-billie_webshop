@@ -51,7 +51,17 @@
 }
 
 .text-container {
+    width: 300px;
     padding-left: 20px;
+}
+
+.checkout-item__product {
+    padding-bottom: 0.5em;
+}
+
+.checkout-item__description {
+    font-size: 1.4rem;
+    opacity: 50%;
 }
 
 .checkout-item__price {
@@ -64,16 +74,14 @@
 
 .delete-btn {
     width: auto;
-    height: auto;
 
-    background-color: transparent;
     border: none;
 
     cursor: pointer;
 }
 
 .delete-btn img {
-    width: 100%;
+    width: 20px;
 }
 
 .delete-btn:focus {

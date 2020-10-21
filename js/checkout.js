@@ -32,10 +32,16 @@ function showItems() {
         textContainer.classList.add('text-container')
         article.appendChild(textContainer);
 
-        let product = document.createElement('p');
+        let product = document.createElement('h3');
         product.classList.add('checkout-item__product');
         product.innerHTML = CART[i].product;
         textContainer.appendChild(product);
+
+        //FIXA
+        let description = document.createElement('p');
+        description.classList.add('checkout-item__description');
+        description.innerHTML = CART[i].description;
+        textContainer.appendChild(description);
 
         let price = document.createElement('p');
         price.classList.add('checkout-item__price');
