@@ -8,17 +8,17 @@
     <script src="https://kit.fontawesome.com/d88157749e.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./styles/header.css">
     <link rel="stylesheet" href="./styles/menu.css">
-    <link rel="stylesheet" href="./styles/grid.css">
     <link rel="stylesheet" href="./styles/checkout.css">
+    <link rel="stylesheet" href="./styles/footer.css">
     <script src="./js/checkout.js" type="module" defer></script>
     <title>BLUE BILLIE</title>
 </head>
 
 <body>
 
+    <!-- HEADER -->
     <header>
         <div class="header">
-
             <a class="header__item h-logo" href="./index.html">
                 <h1>BLUE BILLIE</h1>
             </a>
@@ -26,29 +26,47 @@
     </header>
 
     <main>
+        <!-- TITLE -->
         <div class="shopping-cart-p">
             <p>Shopping Cart</p>
         </div>
 
-
+        <!-- PRODUCTS IN CART-->
         <div class="checkout__container">
             <div class="container__products">
 
             </div>
         </div>  
 
+        <!-- CONTINUE SHOPPING -->
         <div class="continue__container">
-            <a href="./index.html" class="continue-shopping__link">
+            <a href="./index.html" class="continue-shopping__link" alt="Click here to continue shopping.">
                 <p class="continue-shopping__p">
                     <span><img src="./img/icons/arrow-pointing-left.png" alt=""></span> Continue shopping</p>
             </a>
         </div>
-
+        
+        <!-- TOTAL AMOUNT -->
         <div class="total__container">
             <p>Total: <span class="total__output"></span></p>
             <button class="total__btn">CHECKOUT</button>
         </div>
 
     </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <a class="footer__head" href="./index.html">BLUE <span>BILLIE</span></a>
+
+        <div class="footer__container">
+            <p class="contact">
+                <span>Blue Billie</span>
+                <span>Karlavägen 70</span>
+                <span>114 59 Stockholm, Sweden</span>
+            </p>
+            <p class="contact email">hello@bluebillie.com</p>
+        </div>
+    </footer>
+
 </body>
 </html>

@@ -1,8 +1,8 @@
 
 /* HEAD */
 .shopping-cart-p {
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
+    border-top: 1px solid rgb(221, 221, 221);
+    border-bottom: 1px solid rgb(221, 221, 221);
 
     display: flex;
     justify-content: center;
@@ -60,7 +60,7 @@
 }
 
 .checkout-item__description {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     opacity: 50%;
 }
 
@@ -73,15 +73,23 @@
 }
 
 .delete-btn {
-    width: auto;
+    width: 40px;
+    height: auto;
+    margin: auto;
+    padding-bottom: 15px;
 
     border: none;
 
+    font-size: 7rem;
+    background-color: white;
     cursor: pointer;
+    z-index: 1000;
+
+    transform: rotate(45deg);
 }
 
-.delete-btn img {
-    width: 20px;
+.delete-btn:hover {
+    color: rgb(159, 238, 13);
 }
 
 .delete-btn:focus {
@@ -105,6 +113,7 @@
     display: block;
 }
 
+
 .continue-shopping__p {
     font-size: 2rem;
 }
@@ -121,10 +130,12 @@
     width: 80vw;
     padding: 10em;
     margin: auto;
+
+    margin-bottom: 100px;
     text-align: center;
 }
 
-.total__container p {
+.total__container p, .total__container span {
     font-size: 5rem;
 }
 

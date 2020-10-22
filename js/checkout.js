@@ -5,10 +5,8 @@ let returnedCart = JSON.parse(data);
 
 let CART = [...returnedCart];
 
-
-showItems();
-
 // SHOW PRODUCTS IN CART.
+showItems();
 
 
 function showItems() {
@@ -26,6 +24,7 @@ function showItems() {
         let img = document.createElement('img');
         img.classList.add('checkout-item__img');
         img.src = CART[i].img;
+        img.alt = CART[i].alt;
         article.appendChild(img);
 
         let textContainer = document.createElement('div');
@@ -50,13 +49,9 @@ function showItems() {
 
         let deleteItem = document.createElement('button');
         deleteItem.classList.add('delete-btn');
+        deleteItem.innerHTML = '+';
         deleteItem.id = CART[i].id;
         article.appendChild(deleteItem);
-
-        let deleteImg = document.createElement('img');
-        deleteImg.src = './img/icons/682349_button_512x512.png';
-        deleteItem.appendChild(deleteImg);
-
         };
 
     // GIVES ALL THE BUTTONS EVENT-LISTENENERS. NEEDS TO BE INSIDE THE FUNCTION showItems BECAUSE EVERY TIME AN ITEM IS DELETED THE CODE FOR THIS IS DELETED AND THEN RECREATED. IF THIS STUFF IS OUTSIDE THE LOOP ONLY THE FIRST ROUND OF BUTTONS WILL HAVE EVENT-LISTENERS.
@@ -73,7 +68,7 @@ function showItems() {
 
         for (let i = 0; i < CART.length; i++) {
             totalPrice += CART[i].price;
-        }
+        };
     };
 
     totalOutput.innerHTML = totalPrice + '€';
@@ -86,7 +81,6 @@ function deleteItem(e) {
         
         if (e.target.id === CART[i].id) {
 
-            // let itemIndex = CART.indexOf(CART[i]);
             CART.splice(i, 1);
 
             let cartString = JSON.stringify(CART);

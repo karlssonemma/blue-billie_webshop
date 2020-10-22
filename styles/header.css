@@ -57,9 +57,9 @@
 
 .search__input {
     width: 25rem;
-    padding: 1em;
+    padding: 0.9em;
     border: none;
-    border-bottom: 1px solid black;
+    border-bottom: 2px solid rgb(0, 0, 0);
 
     background-color: transparent;
     font-size: 1.5rem;
@@ -74,20 +74,12 @@
     border: none;
 
     position: relative;
-    right: 30px;
+    right: 35px;
 }
 
-.search__submit i {
-    font-size: 2rem;
+.search__submit img {
+    width: 20px;
 }
-
-/* .cart__btn {
-    width: 100px;
-    height: 50px;
-    display: flex;
-    justify-content: space-between;
-    border: 1px solid black;
-} */
 
 
 .cart-btn__btn {

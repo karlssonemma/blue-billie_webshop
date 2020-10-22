@@ -49,6 +49,7 @@ for (let i = 0; i < NECKLACES.length; i++) {
     let img = document.createElement('img');
     img.classList.add('grid-item__img');
     img.src = NECKLACES[i].img;
+    img.alt = NECKLACES[i].alt;
     article.appendChild(img);
 
     let container = document.createElement('div');
@@ -65,11 +66,6 @@ for (let i = 0; i < NECKLACES.length; i++) {
     addItem.classList.add('grid-item__btn');
     addItem.id = NECKLACES[i].id;
     container.appendChild(addItem);
-
-    // let description = document.createElement('p');
-    // description.classList.add('grid-item__description');
-    // description.innerHTML = NECKLACES[i].description;
-    // article.appendChild(description);
 };
 
 // EARRINGS
@@ -82,11 +78,8 @@ for (let i = 0; i < EARRINGS.length; i++) {
     let img = document.createElement('img');
     img.classList.add('grid-item__img');
     img.src = EARRINGS[i].img;
+    img.alt = EARRINGS[i].alt;
     article.appendChild(img);
-
-    // let overlay = document.createElement('div');
-    // overlay.classList.add('description-overlay');
-    // article.appendChild(overlay);
 
     let container = document.createElement('div');
     container.classList.add('item-container');
@@ -102,11 +95,6 @@ for (let i = 0; i < EARRINGS.length; i++) {
     addItem.classList.add('grid-item__btn');
     addItem.id = EARRINGS[i].id;
     container.appendChild(addItem);
-
-    // let description = document.createElement('p');
-    // description.classList.add('grid-item__description');
-    // description.innerHTML = EARRINGS[i].description;
-    // article.appendChild(description);
 };
 
 // BRACELETS
@@ -119,6 +107,7 @@ for (let i = 0; i < BRACELETS.length; i++) {
     let img = document.createElement('img');
     img.classList.add('grid-item__img');
     img.src = BRACELETS[i].img;
+    img.alt = BRACELETS[i].alt;
     article.appendChild(img);
 
     let container = document.createElement('div');
@@ -164,7 +153,7 @@ if (data) {
     CART = [...returnedCart];
 };
 
-// HAS TO BE RUN IN BEGINNING TO DISPLAY ITEMS IN CART UPON SIDE REFRESH. MAYBE??
+// HAS TO BE RUN IN BEGINNING TO DISPLAY ITEMS IN CART UPON SIDE REFRESH.
 addToCart();
 
 
@@ -228,6 +217,7 @@ function filterArray() {
         let img = document.createElement('img');
         img.classList.add('grid-item__img');
         img.src = NEW_ARRAY[i].img;
+        img.alt = NEW_ARRAY[i].alt;
         article.appendChild(img);
     
         let container = document.createElement('div');
@@ -347,6 +337,7 @@ function addToCart() {
         let cartImg = document.createElement('img');
         cartImg.classList.add('cart__img');
         cartImg.src = e.img;
+        cartImg.alt = e.alt;
         cartArticle.appendChild(cartImg);
 
         let cartTextContainer = document.createElement('div');
@@ -375,51 +366,6 @@ function addToCart() {
         totalOutput.innerHTML = totalPrice + '€';
     };
 };
-
-// // ADD TO CART BTNS
-// let necklaceBtn0 = document.querySelector('#necklace0');
-// let necklaceBtn1 = document.querySelector('#necklace1');
-// let necklaceBtn2 = document.querySelector('#necklace2');
-// let necklaceBtn3 = document.querySelector('#necklace3');
-// let necklaceBtn4 = document.querySelector('#necklace4');
-// let necklaceBtn5 = document.querySelector('#necklace5');
-
-// let earringsBtn0 = document.querySelector('#earrings0');
-// let earringsBtn1 = document.querySelector('#earrings1');
-// let earringsBtn2 = document.querySelector('#earrings2');
-// let earringsBtn3 = document.querySelector('#earrings3');
-// let earringsBtn4 = document.querySelector('#earrings4');
-// let earringsBtn5 = document.querySelector('#earrings5');
-
-// let braceletBtn0 = document.querySelector('#bracelet0');
-// let braceletBtn1 = document.querySelector('#bracelet1');
-// let braceletBtn2 = document.querySelector('#bracelet2');
-// let braceletBtn3 = document.querySelector('#bracelet3');
-// let braceletBtn4 = document.querySelector('#bracelet4');
-// let braceletBtn5 = document.querySelector('#bracelet5');
-
-
-// // EVENT LISTENERS FOR ADD TO CART
-// necklaceBtn1.addEventListener('click', addToArray);
-// necklaceBtn2.addEventListener('click', addToArray);
-// necklaceBtn0.addEventListener('click', addToArray);
-// necklaceBtn3.addEventListener('click', addToArray);
-// necklaceBtn4.addEventListener('click', addToArray);
-// necklaceBtn5.addEventListener('click', addToArray);
-
-// earringsBtn0.addEventListener('click', addToArray);
-// earringsBtn1.addEventListener('click', addToArray);
-// earringsBtn2.addEventListener('click', addToArray);
-// earringsBtn3.addEventListener('click', addToArray);
-// earringsBtn4.addEventListener('click', addToArray);
-// earringsBtn5.addEventListener('click', addToArray);
-
-// braceletBtn0.addEventListener('click', addToArray);
-// braceletBtn1.addEventListener('click', addToArray);
-// braceletBtn2.addEventListener('click', addToArray);
-// braceletBtn3.addEventListener('click', addToArray);
-// braceletBtn4.addEventListener('click', addToArray);
-// braceletBtn5.addEventListener('click', addToArray);
 
 
 export {CART};

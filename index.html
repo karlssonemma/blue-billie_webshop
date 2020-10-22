@@ -10,45 +10,47 @@
     <link rel="stylesheet" href="./styles/menu.css">
     <link rel="stylesheet" href="./styles/grid.css">
     <link rel="stylesheet" href="./styles/cart.css">
+    <link rel="stylesheet" href="./styles/footer.css">
     <script src="./js/main.js" type="module" defer></script>
     <title>BLUE BILLIE</title>
 </head>
 
 <body>
 
-<!-- HEADER -->
-<header>
-    <div class="header">
+    <!-- HEADER -->
+    <header>
+        <div class="header">
 
-        <a class="header__item h-logo" href="./index.html">
-            <h1>BLUE BILLIE</h1>
-        </a>
+            <a class="header__item h-logo" href="./index.html">
+                <h1>BLUE BILLIE</h1>
+            </a>
 
-        <div class="header-items-right">
-            <div class="header__item search">
-                <input type="text" class="search__input" name="search">
-                <button class="search__submit">
-                    <i class="fas fa-search" alt="search"></i>
+            <div class="header-items-right">
+                <div class="header__item search">
+                    <input type="text" class="search__input" alt="Search field. Type to search.">
+                    <button class="search__submit">
+                        <img src="./img/icons/search.png" alt="Magnifying glass. Icon.">
+                    </button>
+                </div>
+                
+                <button class="cart-btn__btn header__item">
+                    <span class="cart-btn__number">0</span>
+                    <img src="./img/icons/shopping-bag-outline.png" class="cart-btn__img" alt="shopping cart button.">
                 </button>
             </div>
-            
-            <button class="cart-btn__btn header__item">
-                <span class="cart-btn__number">0</span>
-                <img src="./img/icons/shopping-bag-outline.png" class="cart-btn__img" alt="shopping cart button.">
-            </button>
+
         </div>
+    </header>
+    <main>
 
-    </div>
-</header>
-
-    <!-- CART -->
-    <div class="overlay"></div>
+        <!-- CART -->
+        <div class="overlay"></div>
         <div class="cart">
 
             <div class="cart__container-head">
                 <h2 class="cart__header">NOTHING TO SEE HERE!</h2>
                 <button class="cart__close">
-                    <img src="./img/icons/682349_button_512x512.png" alt="">
+                    <img src="./img/icons/682349_button_512x512.png" alt="cart">
                 </button>
             </div>
 
@@ -60,11 +62,11 @@
                     Total:
                     <span class="cart__tot-price-output"></span>
                 </p>
-                <a href="./checkout.html" class="checkout">GO TO CART</a>
+                <a href="./checkout.html" class="checkout" alt="Link to checkout-page.">GO TO CART</a>
             </div>
 
         </div>
-    
+
         <!-- MENU -->
         <div class="menu-toggler">
             <button class="menu-btn">
@@ -73,11 +75,11 @@
         </div>
 
         <div class="menu">
-            <a class="menu__link" href="#necklaces">Necklaces</a>
-            <a class="menu__link" href="#earrings">Earrings</a>
-            <a class="menu__link" href="#bracelets">Bracelets</a>
+            <a class="menu__link" href="#necklaces" alt="Necklaces">Necklaces</a>
+            <a class="menu__link" href="#earrings" alt="Earrings">Earrings</a>
+            <a class="menu__link" href="#bracelets" alt="Bracelets">Bracelets</a>
         </div>
-    
+
 
         <!-- GRID -->
         <div class="grid-container">
@@ -98,7 +100,22 @@
             </section>
         </div>
 
+    </main>
 
-    
+    <!-- FOOTER -->
+    <footer class="footer">
+        <a class="footer__head" href="./index.html">BLUE<span>BILLIE</span></a>
+
+        <div class="footer__container">
+            <p class="contact">
+                <span>Blue Billie</span>
+                <span>Karlavägen 70</span>
+                <span>114 59 Stockholm, Sweden</span>
+            </p>
+            <p class="contact email">hello@bluebillie.com</p>
+        </div>
+    </footer>
+
+
 </body>
 </html>
