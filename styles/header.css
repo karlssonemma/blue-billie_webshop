@@ -55,6 +55,10 @@
     display: flex;
 }
 
+#search-label {
+    visibility: hidden;
+}
+
 .search__input {
     width: 25rem;
     padding: 0.9em;
@@ -92,12 +96,10 @@
     transition: .5s;
 }
 
-.cart-btn__btn:focus {
-    outline: none;
-}
 
-.cart-btn__btn:hover {
+.cart-btn__btn:hover, .cart-btn__btn:focus {
     border-bottom: .5px solid black;
+    outline: none;
 }
 
 .cart-btn__number {

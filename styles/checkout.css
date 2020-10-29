@@ -1,3 +1,14 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 62.5%;
+    font-family: 'Dosis', sans-serif;
+    scroll-behavior: smooth;
+
+    max-width: 100vw;
+    overflow-x: hidden;
+}
+
 
 /* HEAD */
 .shopping-cart-p {
@@ -24,8 +35,6 @@
 
     display: flex;
     justify-content: space-between;
-
-    /* border: 1px solid black; */
 }
 
 .container__products {
@@ -84,17 +93,14 @@
     background-color: white;
     cursor: pointer;
     z-index: 1000;
-
     transform: rotate(45deg);
 }
 
-.delete-btn:hover {
+
+.delete-btn:hover, .delete-btn:focus {
     color: rgb(159, 238, 13);
 }
 
-.delete-btn:focus {
-    outline: none;
-}
 
 
 /* CONTINUE SHOPPING */
@@ -157,7 +163,7 @@
     transition: .2s;
 }
 
-.total__btn:hover {
+.total__btn:hover, .total__btn:focus {
     background-color: black;
     color: white;
 }

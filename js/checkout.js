@@ -36,7 +36,6 @@ function showItems() {
         product.innerHTML = CART[i].product;
         textContainer.appendChild(product);
 
-        //FIXA
         let description = document.createElement('p');
         description.classList.add('checkout-item__description');
         description.innerHTML = CART[i].description;

@@ -249,10 +249,12 @@ function filterArray() {
         gridBracelets.style.display = 'grid';
         gridNew.style.display = 'none';
     };
+
+    scrollItems();
 };
 
 searchBtn.addEventListener('click', filterArray);
-document.addEventListener('keyup', filterArray);
+document.addEventListener('keypress', filterArray);
 
 
 // -----------------------------------------ADD TO CART-ARRAY
@@ -366,6 +368,26 @@ function addToCart() {
         totalOutput.innerHTML = totalPrice + '€';
     };
 };
+
+
+
+//------------------------------SHOW PRODUCTS ON SCROLL
+function scrollItems() {
+    let items = document.querySelectorAll('.grid-item');
+    
+    for (let item of items) {
+        let itemPosition = item.getBoundingClientRect().top;
+        let screenPosition = window.innerHeight / 1.8;
+        
+
+        if (itemPosition < screenPosition) {
+            item.classList.add('grid-item--visible');
+        }
+    }
+}
+
+scrollItems();
+window.addEventListener('scroll', scrollItems);
 
 
 export {CART};

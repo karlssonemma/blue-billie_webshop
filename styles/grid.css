@@ -17,6 +17,7 @@
 .grid {
     width: 100vw;
     margin: auto;
+    overflow: hidden;
 
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -31,7 +32,14 @@
     align-items: center;
     justify-content: center;
 
-    transition: 0.5s;
+    transition: 1s;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.grid-item--visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .item-container {
@@ -51,6 +59,7 @@
 }
 
 .grid-item__img {
+    max-height: 800px;
     max-width: 100%;
     object-fit: contain;
 }
@@ -66,19 +75,11 @@
     cursor: pointer;
 }
 
-.grid-item__btn:focus {
+
+.grid-item__btn:hover, .grid-item__btn:focus {
+    color: rgb(159, 238, 13);
     outline: none;
 }
-
-.grid-item__btn:hover {
-    color: rgb(159, 238, 13);
-}
-
-/* .grid-item__description {
-    margin-bottom: 2em;
-    font-size: 1.4rem;
-    color: rgb(194, 194, 194);
-} */
 
 .description-overlay {
     background-color: rgb(30, 37, 30);
