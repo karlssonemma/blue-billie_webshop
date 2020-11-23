@@ -22,8 +22,9 @@
     display: block;
 }
 
-.footer__head, .footer__head span {
-    font-size: 6rem;
+.footer__head, 
+.footer__head span {
+    font-size: 4.5rem;
     font-family: 'Righteous';
 }
 
