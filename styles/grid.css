@@ -21,7 +21,7 @@
 .grid {
     width: 80vw;
     margin: auto;
-    margin-top: 100px;
+    margin-top: 100px; 
     overflow: hidden;
 
     display: grid;
@@ -30,7 +30,7 @@
 
 .grid-item {
     height: auto;
-    margin-bottom: 20px;
+    margin-bottom: 5em;
 
     display: flex;
     flex-direction: column;
@@ -50,7 +50,7 @@
 .item-container {
     display: flex;
     flex-direction: row;
-    padding-top: 4px;
+    padding-top: 10em;
 }
 
 .grid-item__product {
@@ -71,6 +71,7 @@
 
 .grid-item__btn {
     display: block;
+    padding-left: .2em;
 
     font-size: 1.6rem;
     font-family: 'Righteous', sans-serif;
@@ -102,7 +103,7 @@
 @media screen and (min-width: 700px) {
     .grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
+        gap: 15em;
     }
 }
 
@@ -110,7 +111,8 @@
     .grid {
         grid-template-columns: repeat(3, 1fr);
     }
-    .grid-item__product {
-        font-size: 1.8rem;
+    .grid-item__product,
+    .grid-item__btn {
+        font-size: 1.4rem;
     }
 }

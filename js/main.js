@@ -42,14 +42,13 @@ let burger = document.querySelector('.burger');
 let nav = document.querySelector('.nav-links');
 let navLinks = document.querySelectorAll('.nav-links li')
 let logo = document.querySelector('.h-logo');
+let header = document.querySelector('.header');
 
 function navSlide() {
-
 
     nav.classList.toggle('nav-active');
 
     burger.classList.toggle('toggle');
-
 }
 
 for (let link of navLinks) {
@@ -276,7 +275,7 @@ function filterArray() {
 };
 
 searchBtn.addEventListener('click', filterArray);
-document.addEventListener('keypress', filterArray);
+document.addEventListener('keyup', filterArray);
 
 
 // -----------------------------------------ADD TO CART-ARRAY
@@ -340,6 +339,7 @@ closeBtn.addEventListener('click', hideCart);
 
 // ---------------------------------------ADD TO CART CONTAINER
 
+
 function addToCart() {
 
     // PUSH TO LOCAL STORAGE
@@ -351,6 +351,23 @@ function addToCart() {
     if (CART.length > 0) {
         document.querySelector('.cart__header').innerHTML = 'CART';
     };
+
+
+    //NEW
+    // let index = CART.length - 1;
+
+    // console.log(CART[index]);
+
+    // let lastItem = CART[index];
+    
+    // let found = CART.find(item => item.id === lastItem.id);
+
+    // if (found) {
+    //     console.log('found!');
+
+    // };
+
+
 
     CART.forEach( e => {
 
@@ -372,11 +389,16 @@ function addToCart() {
         cartProduct.classList.add('cart__product');
         cartProduct.innerHTML = e.product;
         cartTextContainer.appendChild(cartProduct);
-    
+
         let cartPrice = document.createElement('p');
         cartPrice.classList.add('cart__price');
         cartPrice.innerHTML = e.price + '€';
         cartTextContainer.appendChild(cartPrice);
+
+        let cartAmount = document.createElement('span');
+        cartAmount.innerHTML = 'fbhrbj';
+        cartAmount.classList.add('cart__amount');
+        cartTextContainer.appendChild(cartAmount);
     });
 
     // SHOWS HOW MANY PRODUCTS THERE IS IN THE CART - IN HEAD.
