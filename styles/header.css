@@ -39,7 +39,6 @@
 }
 
 .h-logo {
-    
     padding: 0;
     
     color: black;
@@ -47,8 +46,13 @@
     background-color: transparent;
 
     z-index: 10;
-    
 }
+
+.logo-active {
+    color: white;
+}
+
+
 
 .h-logo h1 {
     font-family: 'Righteous', sans-serif;
@@ -179,7 +183,7 @@
     top: -100vh;
     right: 0;
 
-    background-color: tomato;
+    background-color: black;
 
     display: flex;
     flex-direction: column;
@@ -202,7 +206,7 @@
     letter-spacing: 1px;
     text-decoration: none;
 
-    color: black;
+    color: white;
 }
 
 .nav-links li:hover a {
@@ -256,6 +260,7 @@
         position: unset;
 
         flex-direction: row;
+        background-color: white;
     }
 
     .nav-links li {
@@ -267,6 +272,7 @@
         font-size: 1.6rem;
 
         display: block;
+        color: black;
     }
 
     .cart-btn__btn {

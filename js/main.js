@@ -1,7 +1,6 @@
 import {NECKLACES, EARRINGS, BRACELETS} from './collections.js';
 
 let COLLECTION = [...NECKLACES, ...EARRINGS, ...BRACELETS];
-console.log(COLLECTION);
 
 
 // --------------------------------SHOW MENU FUNCTION
@@ -47,6 +46,7 @@ let header = document.querySelector('.header');
 function navSlide() {
 
     nav.classList.toggle('nav-active');
+    logo.classList.toggle('logo-active')
 
     burger.classList.toggle('toggle');
 }
@@ -91,61 +91,6 @@ for (let i = 0; i < COLLECTION.length; i++) {
 };
 
 
-// for (let i = 0; i < EARRINGS.length; i++) {
-
-//     let article = document.createElement('article');
-//     article.classList.add('grid-item');
-//     gridEarrings.appendChild(article);
-
-//     let img = document.createElement('img');
-//     img.classList.add('grid-item__img');
-//     img.src = EARRINGS[i].img;
-//     img.alt = EARRINGS[i].alt;
-//     article.appendChild(img);
-
-//     let container = document.createElement('div');
-//     container.classList.add('item-container');
-//     article.appendChild(container);
-
-//     let product = document.createElement('h3');
-//     product.classList.add('grid-item__product');
-//     product.innerHTML = EARRINGS[i].product + ' / ' + EARRINGS[i].price + '€ / ';
-//     container.appendChild(product);
-
-//     let addItem = document.createElement('button');
-//     addItem.innerHTML = 'ADD TO CART';
-//     addItem.classList.add('grid-item__btn');
-//     addItem.id = EARRINGS[i].id;
-//     container.appendChild(addItem);
-// };
-
-// for (let i = 0; i < BRACELETS.length; i++) {
-
-//     let article = document.createElement('article');
-//     article.classList.add('grid-item');
-//     gridBracelets.appendChild(article);
-
-//     let img = document.createElement('img');
-//     img.classList.add('grid-item__img');
-//     img.src = BRACELETS[i].img;
-//     img.alt = BRACELETS[i].alt;
-//     article.appendChild(img);
-
-//     let container = document.createElement('div');
-//     container.classList.add('item-container');
-//     article.appendChild(container);
-
-//     let product = document.createElement('h3');
-//     product.classList.add('grid-item__product');
-//     product.innerHTML = BRACELETS[i].product + ' / ' + BRACELETS[i].price + '€ / ';
-//     container.appendChild(product);
-
-//     let addItem = document.createElement('button');
-//     addItem.innerHTML = 'ADD TO CART';
-//     addItem.classList.add('grid-item__btn');
-//     addItem.id = BRACELETS[i].id;
-//     container.appendChild(addItem);
-// };
 
 // EVENT-LISTENERS FOR addToArray
 let addToCartBtns = document.getElementsByClassName('grid-item__btn');
@@ -281,26 +226,22 @@ document.addEventListener('keyup', filterArray);
 // -----------------------------------------ADD TO CART-ARRAY
 function addToArray(e) {
 
-    for (let i = 0; i < COLLECTION.length; i++) {
+    const found = CART.find(el => el.id === e.target.id)
 
-        if (COLLECTION[i].id === e.target.id) {
-            CART.push(COLLECTION[i]);
-        }; 
-    };
+    if (found) {
+        found.quantity += 1;
+        console.log(found)
+    } else {
 
-    // for (let i = 0; i < NECKLACES.length; i++) {
-        
-    //     if (NECKLACES[i].id === e.target.id) {
-    //         CART.push(NECKLACES[i]);
-    //     }; 
-    // };
+        for (let i = 0; i < COLLECTION.length; i++) {
 
-    // for (let i = 0; i < EARRINGS.length; i++) {
-        
-    //     if (EARRINGS[i].id === e.target.id) {
-    //         CART.push(EARRINGS[i]);
-    //     };  
-    // };
+            if (COLLECTION[i].id === e.target.id) {
+                CART.push(COLLECTION[i]);
+            }; 
+        };
+    }
+
+    console.log(CART)
 
     addToCart();
     showCart();
@@ -343,33 +284,22 @@ closeBtn.addEventListener('click', hideCart);
 function addToCart() {
 
     // PUSH TO LOCAL STORAGE
-    let cartString = JSON.stringify(CART);
-    localStorage.setItem('cart', cartString);
+    // let cartString = JSON.stringify(CART);
+    // localStorage.setItem('cart', cartString);
+
+    let containerTotal = document.querySelector('.cart__container-total');
 
     cartContainer.innerHTML = "";
     
     if (CART.length > 0) {
         document.querySelector('.cart__header').innerHTML = 'CART';
+    } else {
+        document.querySelector('.cart__header').innerHTML = 'NOTHING TO SEE HERE!';
+        containerTotal.style.display = 'none';
     };
 
 
-    //NEW
-    // let index = CART.length - 1;
-
-    // console.log(CART[index]);
-
-    // let lastItem = CART[index];
-    
-    // let found = CART.find(item => item.id === lastItem.id);
-
-    // if (found) {
-    //     console.log('found!');
-
-    // };
-
-
-
-    CART.forEach( e => {
+    CART.map( (e, i) => {
 
         let cartArticle = document.createElement('article');
         cartArticle.classList.add('cart__article')
@@ -395,23 +325,97 @@ function addToCart() {
         cartPrice.innerHTML = e.price + '€';
         cartTextContainer.appendChild(cartPrice);
 
-        let cartAmount = document.createElement('span');
-        cartAmount.innerHTML = 'fbhrbj';
-        cartAmount.classList.add('cart__amount');
-        cartTextContainer.appendChild(cartAmount);
+        let quantityContainer = document.createElement('div');
+        quantityContainer.classList.add('quantity__container')
+        cartTextContainer.appendChild(quantityContainer);
+
+        let remove = document.createElement('button');
+        remove.classList.add('quantity__btn')
+        remove.innerHTML = '-';
+        quantityContainer.appendChild(remove);
+
+        let quantity = document.createElement('p');
+        quantity.innerHTML = e.quantity;
+        quantity.classList.add('item__quantity');
+        quantityContainer.appendChild(quantity);
+
+        let add = document.createElement('button');
+        add.classList.add('quantity__btn')
+        add.innerHTML = '+';
+        quantityContainer.appendChild(add);
+
+
+
+        add.addEventListener('click', () => {
+            e.quantity += 1;
+            quantity.innerHTML = e.quantity;
+            console.log(e)
+
+            updatePrice();
+            updateQuantity();
+
+        })
+
+        remove.addEventListener('click', () => {
+            e.quantity -= 1;
+
+            if (e.quantity === 0 || e.quantity < 0) {
+                console.log(i)
+                CART.splice(i, 1)
+            } else {
+                quantity.innerHTML = e.quantity;
+            }
+
+            updatePrice();
+            updateQuantity();
+
+            addToCart();
+            showCart();
+        })
+
     });
 
-    // SHOWS HOW MANY PRODUCTS THERE IS IN THE CART - IN HEAD.
-    numberOfItems.innerHTML = CART.length;
+    updateQuantity();
+    updatePrice();
+    updateLocalStorage();
 
+};
+
+function updatePrice() {
     // SHOWS TOTAL PRICE IN CART
     let totalPrice = 0;
 
-    for (let i = 0; i < CART.length; i++) {
-        totalPrice += CART[i].price;
-        totalOutput.innerHTML = totalPrice + '€';
+    if (CART) {
+        for (let i = 0; i < CART.length; i++) {
+            totalPrice += CART[i].price * CART[i].quantity;
+            totalOutput.innerHTML = totalPrice + '€';
+        };
+    } else {
+        totalOutput.innerHTML = ''
     };
-};
+}
+
+function updateQuantity() {
+    // SHOWS HOW MANY PRODUCTS THERE IS IN THE CART - IN HEAD.
+    let number = 0;
+
+    if (CART.length > 0) {
+        for (let i = 0; i < CART.length; i++) {
+            number += CART[i].quantity;
+            numberOfItems.innerHTML = number;
+        };
+    } else {
+        numberOfItems.innerHTML = 0;
+    }
+
+    updateLocalStorage();
+}
+
+function updateLocalStorage() {
+    // PUSH TO LOCAL STORAGE
+    let cartString = JSON.stringify(CART);
+    localStorage.setItem('cart', cartString);
+}
 
 
 

@@ -91,7 +91,7 @@
 }
 
 .cart__img {
-    width: 40%;
+    width: 30%;
 }
 
 .cart__text-container {
@@ -106,12 +106,6 @@
 .cart__price {
     font-size: 1.6rem;
     padding-bottom: .5em;
-}
-
-.cart__amount {
-    height: 20px;
-    width: 20px;
-    background-color: tomato;
 }
 
 .cart__container-total {
