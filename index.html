@@ -22,25 +22,11 @@
     <header>
         <div class="header">
 
-            <a class="header__item h-logo" href="./index.html">
+            <a class="header__item h-logo header__container-left" href="./index.html">
                 <h1>BLUE BILLIE</h1>
             </a>
 
-            <div class="header-items-right">
-                <div class="header__item search">
-                    <label for="search" id="search-label">Search</label>
-                    <input id="search" type="text" class="search__input" role="search">
-                    <button class="search__submit">
-                        <img src="./img/icons/search.png" alt="Magnifying glass. Icon.">
-                    </button>
-                </div>
-                
-                
-                <div class="burger header__item">
-                    <div class="top"></div>
-                    <div class="middle"></div>
-                    <div class="bottom"></div>
-                </div>
+            <div class="header__container-middle">
                 
                 <ul class="nav-links">
                     <li><a class="menu__link" href="#necklaces">Necklaces</a></li>
@@ -50,12 +36,32 @@
                     <li><a href="./checkout.html" class="menu__link">Cart</a></li>
                     <li><a href="" class="menu__link">About</a></li>
                 </ul>
+
+            </div>
+            <div class="header__container-right">
+
+                <div class="header__item search">
+                    <label for="search" id="search-label">Search</label>
+                    <input id="search" type="text" class="search__input" role="search">
+                    <button class="search__submit">
+                        <img src="./img/icons/search.png" alt="Magnifying glass. Icon.">
+                    </button>
+                </div>
                 
                 <button class="cart-btn__btn header__item">
                     <span class="cart-btn__number">0</span>
                     <img src="./img/icons/shopping-bag-outline.png" class="cart-btn__img" alt="shopping cart button.">
                 </button>
+
+                <div class="burger header__item">
+                    <div class="top"></div>
+                    <div class="middle"></div>
+                    <div class="bottom"></div>
+                </div>
+                <div class="added">added!</div>
             </div>
+                
+            
 
         </div>
     </header>
@@ -67,7 +73,7 @@
         <div class="cart">
 
             <div class="cart__container-head">
-                <h2 class="cart__header">NOTHING TO SEE HERE!</h2>
+                <h2 class="cart__header">CART</h2>
                 <button class="cart__close">
                     <img src="./img/icons/682349_button_512x512.png" alt="cart">
                 </button>
@@ -104,16 +110,8 @@
 
         <!-- GRID -->
         <div class="grid-container">
-            <section class="grid grid-necklaces" id="necklaces">
+            <section class="grid grid-main" id="necklaces">
 
-            </section>
-
-            <section class="grid grid-earrings" id="earrings">
-                
-            </section>
-
-            <section class="grid grid-bracelets" id="bracelets">
-                
             </section>
 
             <section class="grid grid-new">

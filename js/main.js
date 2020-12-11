@@ -2,39 +2,6 @@ import {NECKLACES, EARRINGS, BRACELETS} from './collections.js';
 
 let COLLECTION = [...NECKLACES, ...EARRINGS, ...BRACELETS];
 
-
-// --------------------------------SHOW MENU FUNCTION
-
-// let menu = document.querySelector('.menu');
-// let menuBtn = document.querySelector('.menu-btn');
-// let menuBtnImg = document.querySelector('.menu-btn__arrow');
-
-// let isTrue = true;
-
-// function showMenu() {
-    
-//     if (isTrue === true) {
-//         menu.style.top = 0;
-//         menuBtnImg.style.transform = 'rotate(-270deg)';
-
-//     } else {
-//         menu.style.top = -250 + 'px';
-//         menuBtnImg.style.transform = 'rotate(270deg)';
-//     };
-
-//     isTrue = !isTrue;
-// };
-
-// // EVENT-LISTENERS MENU
-
-// menuBtn.addEventListener('click', showMenu);
-
-// let menuLink = document.getElementsByClassName('menu__link');
-
-// for (let link of menuLink) {
-//     link.addEventListener('click', showMenu);
-// }
-
 // ----------------------------------CREATES PRODUCTS IN GRID
 
 let burger = document.querySelector('.burger');
@@ -43,30 +10,31 @@ let navLinks = document.querySelectorAll('.nav-links li')
 let logo = document.querySelector('.h-logo');
 let header = document.querySelector('.header');
 
+// ----------------------------------FUNCTION FOR SHOWING MENU IN MOBILE/TABLET MODE
 function navSlide() {
 
-    nav.classList.toggle('nav-active');
-    logo.classList.toggle('logo-active')
-
-    burger.classList.toggle('toggle');
+    if (window.innerWidth <= 1000) {
+        nav.classList.toggle('nav-active');
+        logo.classList.toggle('logo-active');
+        burger.classList.toggle('toggle');
+    }
 }
+//event-listeners navSlide
+burger.addEventListener('click', navSlide);
 
 for (let link of navLinks) {
     link.addEventListener('click', navSlide)
 };
-burger.addEventListener('click', navSlide)
 
-
-let gridNecklaces = document.querySelector('.grid-necklaces');
-// let gridEarrings = document.querySelector('.grid-earrings');
-// let gridBracelets = document.querySelector('.grid-bracelets');
+// -------------------------------------- CREATES ITEMS IN GRID
+let grid = document.querySelector('.grid-main');
 
 
 for (let i = 0; i < COLLECTION.length; i++) {
 
     let article = document.createElement('article');
     article.classList.add('grid-item');
-    gridNecklaces.appendChild(article);
+    grid.appendChild(article);
 
     let img = document.createElement('img');
     img.classList.add('grid-item__img');
@@ -130,7 +98,6 @@ let searchBtn = document.querySelector('.search__submit');
 let gridNew = document.querySelector('.grid-new');
 
 
-
 function filterArray() {
 
     let inputValue = searchInput.value;
@@ -148,31 +115,10 @@ function filterArray() {
         };
     };
 
-    // for (let i = 0; i < EARRINGS.length; i++) {
-
-    //     let name = EARRINGS[i].product;
-    //     let string = name.toLowerCase();
-
-    //     if (string.includes(input)) {
-    //         NEW_ARRAY.push(EARRINGS[i]);
-    //     };
-    // };
-
-    // for (let i = 0; i < BRACELETS.length; i++) {
-
-    //     let name = BRACELETS[i].product;
-    //     let string = name.toLowerCase();
-
-    //     if (string.includes(input)) {
-    //         NEW_ARRAY.push(BRACELETS[i]);
-    //     };
-    // };
-
     gridNew.innerHTML = "";
     gridNew.style.display = 'grid';
-    gridNecklaces.style.display = 'none';
-    // gridBracelets.style.display = 'none';
-    // gridEarrings.style.display = 'none';
+    grid.style.display = 'none';
+
 
     for (let i = 0; i < NEW_ARRAY.length; i++) {
 
@@ -210,9 +156,7 @@ function filterArray() {
     };
 
     if (input == "") {
-        gridNecklaces.style.display = 'grid';
-        // gridEarrings.style.display = 'grid';
-        // gridBracelets.style.display = 'grid';
+        grid.style.display = 'grid';
         gridNew.style.display = 'none';
     };
 
@@ -233,18 +177,28 @@ function addToArray(e) {
         console.log(found)
     } else {
 
-        for (let i = 0; i < COLLECTION.length; i++) {
+        //ny
+        let push = COLLECTION.find(el => el.id === e.target.id)
+        CART.push(push);
+        //gammal
+        // for (let i = 0; i < COLLECTION.length; i++) {
 
-            if (COLLECTION[i].id === e.target.id) {
-                CART.push(COLLECTION[i]);
-            }; 
-        };
+        //     if (COLLECTION[i].id === e.target.id) {
+        //         CART.push(COLLECTION[i]);
+        //     }; 
+        // };
     }
 
+    let rightContainer = document.querySelector('.header__container-right');
+    rightContainer.classList.add('added-animation');
+
+    rightContainer.addEventListener('animationend', () => {
+        rightContainer.classList.remove('added-animation');
+    })
     console.log(CART)
 
     addToCart();
-    showCart();
+    // showCart();
 };
 
 
@@ -291,12 +245,12 @@ function addToCart() {
 
     cartContainer.innerHTML = "";
     
-    if (CART.length > 0) {
-        document.querySelector('.cart__header').innerHTML = 'CART';
-    } else {
-        document.querySelector('.cart__header').innerHTML = 'NOTHING TO SEE HERE!';
-        containerTotal.style.display = 'none';
-    };
+    // if (CART.length > 0) {
+    //     document.querySelector('.cart__header').innerHTML = 'CART';
+    // } else {
+    //     document.querySelector('.cart__header').innerHTML = 'NOTHING TO SEE HERE!';
+    //     containerTotal.style.display = 'none';
+    // };
 
 
     CART.map( (e, i) => {
@@ -360,8 +314,12 @@ function addToCart() {
             e.quantity -= 1;
 
             if (e.quantity === 0 || e.quantity < 0) {
-                console.log(i)
                 CART.splice(i, 1)
+
+                if (CART.length === 0) {
+                    hideCart();
+                }
+
             } else {
                 quantity.innerHTML = e.quantity;
             }
@@ -370,15 +328,14 @@ function addToCart() {
             updateQuantity();
 
             addToCart();
-            showCart();
+            // showCart();
         })
 
     });
 
     updateQuantity();
     updatePrice();
-    updateLocalStorage();
-
+    // updateLocalStorage();
 };
 
 function updatePrice() {

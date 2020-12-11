@@ -94,7 +94,6 @@ function showItems() {
             e.quantity -= 1;
 
             if (e.quantity === 0 || e.quantity < 0) {
-                console.log(i)
                 CART.splice(i, 1)
             }
 
