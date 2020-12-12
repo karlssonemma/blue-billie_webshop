@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@100;200;300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200&family=Righteous&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">    
+    <link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/d88157749e.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./styles/header.css">
-    <!-- <link rel="stylesheet" href="./styles/menu.css"> -->
     <link rel="stylesheet" href="./styles/grid.css">
     <link rel="stylesheet" href="./styles/cart.css">
     <link rel="stylesheet" href="./styles/footer.css">
@@ -19,97 +20,78 @@
 <body>
 
     <!-- HEADER -->
-    <header>
-        <div class="header">
+    <header class="header">
+        
 
-            <a class="header__item h-logo header__container-left" href="./index.html">
-                <h1>BLUE BILLIE</h1>
-            </a>
+        <a class="h-logo" href="./index.html">
+            <h1>BLUE BILLIE</h1>
+        </a>
 
-            <div class="header__container-middle">
-                
-                <ul class="nav-links">
-                    <li><a class="menu__link" href="#necklaces">Necklaces</a></li>
-                    <li><a class="menu__link" href="#earrings">Earrings</a></li>
-                    <li><a class="menu__link" href="#bracelets">Bracelets</a></li>
-                    
-                    <li><a href="./checkout.html" class="menu__link">Cart</a></li>
-                    <li><a href="" class="menu__link">About</a></li>
-                </ul>
-
-            </div>
-            <div class="header__container-right">
-
-                <div class="header__item search">
-                    <label for="search" id="search-label">Search</label>
-                    <input id="search" type="text" class="search__input" role="search">
-                    <button class="search__submit">
-                        <img src="./img/icons/search.png" alt="Magnifying glass. Icon.">
-                    </button>
-                </div>
-                
-                <button class="cart-btn__btn header__item">
-                    <span class="cart-btn__number">0</span>
-                    <img src="./img/icons/shopping-bag-outline.png" class="cart-btn__img" alt="shopping cart button.">
-                </button>
-
-                <div class="burger header__item">
-                    <div class="top"></div>
-                    <div class="middle"></div>
-                    <div class="bottom"></div>
-                </div>
-                <div class="added">added!</div>
-            </div>
-                
+        
+        <ul class="menu">
+            <li><a class="menu__link" href="#necklaces">Necklaces</a></li>
+            <li><a class="menu__link" href="#earrings">Earrings</a></li>
+            <li><a class="menu__link" href="#bracelets">Bracelets</a></li>
             
+            <li><a href="./checkout.html" class="menu__link">Cart</a></li>
+            <li><a href="" class="menu__link">About</a></li>
+        </ul>
+    
 
-        </div>
+        <section class="header__right">
+
+            <div class="search">
+                <label for="search" id="search-label">Search</label>
+                <input id="search" type="search" class="search__input" role="search">
+                <button class="search__submit">
+                    <img src="./img/icons/search.png" alt="">
+                </button>
+            </div>
+            
+            <button class="show-cart">
+                <span class="show-cart__number">0</span>
+                <img src="./img/icons/shopping-bag-outline.png" class="show-cart__img" alt="">
+            </button>
+
+            <div class="burger">
+                <div class="top"></div>
+                <div class="middle"></div>
+                <div class="bottom"></div>
+            </div>
+
+            <div class="added">added!</div>
+
+        </section>
+            
+        
+
+        
     </header>
 
     <main>
 
         <!-- CART -->
         <div class="overlay"></div>
-        <div class="cart">
+        <section class="cart">
 
-            <div class="cart__container-head">
+            <section class="cart-head">
                 <h2 class="cart__header">CART</h2>
                 <button class="cart__close">
-                    <img src="./img/icons/682349_button_512x512.png" alt="cart">
+                    <i class="fas fa-times"></i>
                 </button>
-            </div>
+            </section>
 
-            <div class="cart__container-products">
-            </div>
+            <section class="cart-products"></section>
 
-            <div class="cart__container-total">
-                <p class="cart__tot-price">
-                    Total:
-                    <span class="cart__tot-price-output"></span>
-                </p>
-                <a href="./checkout.html" class="checkout">GO TO CART</a>
-            </div>
+            <section class="cart-total">
+                <p class="cart-total__output"></p>
+                <a href="./checkout.html" class="checkout-btn">GO TO CART</a>
+            </section>
 
-        </div>
-
-        <!-- MENU -->
-
-        <!-- 
-        <div class="menu-toggler">
-            <button class="menu-btn">
-                <img src="./img/icons/arrow-pointing-left.png" alt="menu button" class="menu-btn__arrow">
-            </button>
-        </div>
-
-        <div class="menu">
-            <a class="menu__link" href="#necklaces">Necklaces</a>
-            <a class="menu__link" href="#earrings">Earrings</a>
-            <a class="menu__link" href="#bracelets">Bracelets</a>
-        </div> -->
-
+        </section>
 
         <!-- GRID -->
-        <div class="grid-container">
+        <section class="grid-container">
             <section class="grid grid-main" id="necklaces">
 
             </section>
@@ -117,22 +99,23 @@
             <section class="grid grid-new">
                 
             </section>
-        </div>
+        </section>
 
     </main>
 
     <!-- FOOTER -->
     <footer class="footer">
-        <a class="footer__head" href="./index.html">BLUE<span>BILLIE</span></a>
+        <a class="footer__logo" href="./index.html">
+            <p>BLUE</p>
+            <p>BILLIE</p>
+        </a>
 
-        <div class="footer__container">
-            <p class="contact">
-                <span>Blue Billie</span>
-                <span>Karlavägen 70</span>
-                <span>114 59 Stockholm, Sweden</span>
-            </p>
-            <p class="contact email">hello@bluebillie.com</p>
-        </div>
+        <article class="footer__contact">
+            <p>Blue Billie</p>
+            <p>Karlavägen 70</p>
+            <p>114 59 Stockholm, Sweden</p>
+            <a class="email">hello@bluebillie.com</a>
+        </article>
     </footer>
 
 

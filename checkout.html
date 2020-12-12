@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@100;200;300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200&family=Righteous&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/d88157749e.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./styles/header.css">
-    <!-- <link rel="stylesheet" href="./styles/menu.css"> -->
     <link rel="stylesheet" href="./styles/checkout.css">
     <link rel="stylesheet" href="./styles/footer.css">
     <link rel="stylesheet" href="./styles/quantity.css">
@@ -27,46 +27,39 @@
     </header>
 
     <main>
-        <!-- TITLE -->
-        <div class="shopping-cart-p">
-            <p>Shopping Cart</p>
-        </div>
+        <!-- SUBHEAD -->
+        <h2 class="subhead">Shopping Cart</h2>
 
         <!-- PRODUCTS IN CART-->
-        <div class="checkout__container">
-            <div class="container__products">
-
-            </div>
-        </div>  
-
+        <section class="container__products"></section>
+         
         <!-- CONTINUE SHOPPING -->
-        <div class="continue__container">
-            <a href="./index.html" class="continue-shopping__link" alt="Click here to continue shopping.">
-                <p class="continue-shopping__p">
-                    <span><img src="./img/icons/arrow-pointing-left.png" alt=""></span> Continue shopping</p>
-            </a>
-        </div>
+        <a href="./index.html" class="continue-link">
+            <i class="fas fa-long-arrow-alt-left continue-link__icon"></i>
+            <p class="continue-link__p">Continue shopping</p>
+        </a>
         
         <!-- TOTAL AMOUNT -->
-        <div class="total__container">
-            <p>Total: <span class="total__output"></span></p>
+        <section class="total__container">
+            <p class="total__output"></p>
             <button class="total__btn">CHECKOUT</button>
-        </div>
+        </section>
 
     </main>
 
     <!-- FOOTER -->
     <footer class="footer">
-        <a class="footer__head" href="./index.html">BLUE <span>BILLIE</span></a>
+        <a class="footer__logo" href="./index.html">
+            <p>BLUE</p>
+            <p>BILLIE</p>
+        </a>
 
-        <div class="footer__container">
-            <p class="contact">
-                <span>Blue Billie</span>
-                <span>Karlavägen 70</span>
-                <span>114 59 Stockholm, Sweden</span>
-            </p>
-            <p class="contact email">hello@bluebillie.com</p>
-        </div>
+        <article class="footer__contact">
+            <p>Blue Billie</p>
+            <p>Karlavägen 70</p>
+            <p>114 59 Stockholm, Sweden</p>
+            <a class="email">hello@bluebillie.com</a>
+        </article>
     </footer>
 
 </body>

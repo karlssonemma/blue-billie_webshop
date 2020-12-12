@@ -1,16 +1,17 @@
-.quantity__container {
+.quantity {
     width: max-content;
+
     display: flex;
     align-items: center;
     border: 1px solid rgba(0, 0, 0, 0.13);
 }
 
-.item__quantity {
+.quantity__output {
     width: 10px;
-    font-size: 1.2rem;
     padding: .4em 0;
+
+    font-size: 1.2rem;
     text-align: center;
-    /* background-color: tomato; */
 }
 
 .quantity__btn {

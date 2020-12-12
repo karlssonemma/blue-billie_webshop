@@ -17,36 +17,36 @@ function showItems() {
     CART.map((e, i) => {
 
         let article = document.createElement('article');
-        article.classList.add('checkout-item');
+        article.classList.add('product');
         containerProducts.appendChild(article);
 
         let img = document.createElement('img');
-        img.classList.add('checkout-item__img');
+        img.classList.add('product__img');
         img.src = e.img;
         img.alt = e.alt;
         article.appendChild(img);
 
         let textContainer = document.createElement('div');
-        textContainer.classList.add('text-container')
+        textContainer.classList.add('product__text')
         article.appendChild(textContainer);
 
         let product = document.createElement('h3');
-        product.classList.add('checkout-item__product');
+        product.classList.add('product__name');
         product.innerHTML = e.product;
         textContainer.appendChild(product);
 
         let description = document.createElement('p');
-        description.classList.add('checkout-item__description');
+        description.classList.add('product__description');
         description.innerHTML = e.description;
         textContainer.appendChild(description);
 
         let price = document.createElement('p');
-        price.classList.add('checkout-item__price');
+        price.classList.add('product__price');
         price.innerHTML = 'à ' + e.price + '€';
         textContainer.appendChild(price);
 
         let quantityContainer = document.createElement('div');
-        quantityContainer.classList.add('quantity__container')
+        quantityContainer.classList.add('quantity')
         textContainer.appendChild(quantityContainer);
 
         let remove = document.createElement('button');
@@ -56,7 +56,7 @@ function showItems() {
 
         let quantity = document.createElement('p');
         quantity.innerHTML = e.quantity;
-        quantity.classList.add('item__quantity');
+        quantity.classList.add('quantity__output');
         quantityContainer.appendChild(quantity);
 
         let add = document.createElement('button');
@@ -69,17 +69,17 @@ function showItems() {
         article.appendChild(deleteContainer);
 
         let deleteItem = document.createElement('button');
-        deleteItem.classList.add('delete-btn');
+        deleteItem.classList.add('product__delete-btn');
         // deleteItem.innerHTML = '+';
         deleteItem.id = e.id;
         deleteContainer.appendChild(deleteItem);
 
         let icon = document.createElement('i');
-        icon.classList.add('fas', 'fa-times');
+        icon.classList.add('fas', 'fa-times', 'delete-icon');
         deleteItem.appendChild(icon);
 
         let totalAmountProduct = document.createElement('p');
-        totalAmountProduct.classList.add('item__total')
+        totalAmountProduct.classList.add('product__total')
         totalAmountProduct.innerHTML = 'Total: ' + e.price * e.quantity + '€';
         deleteContainer.appendChild(totalAmountProduct);
 
@@ -102,7 +102,7 @@ function showItems() {
     });
 
     // GIVES ALL THE BUTTONS EVENT-LISTENENERS. NEEDS TO BE INSIDE THE FUNCTION showItems BECAUSE EVERY TIME AN ITEM IS DELETED THE CODE FOR THIS IS DELETED AND THEN RECREATED. IF THIS STUFF IS OUTSIDE THE LOOP ONLY THE FIRST ROUND OF BUTTONS WILL HAVE EVENT-LISTENERS.
-    let deleteBtn = document.getElementsByClassName('delete-btn');
+    let deleteBtn = document.getElementsByClassName('product__delete-btn');
 
     for (let btn of deleteBtn) {
         btn.addEventListener('click', deleteItem);
@@ -123,7 +123,7 @@ function updatePrice() {
     if (CART.length > 0) {
         for (let i = 0; i < CART.length; i++) {
             totalPrice += CART[i].price * CART[i].quantity;
-            totalOutput.innerHTML = totalPrice + '€';
+            totalOutput.innerHTML = 'Total: ' + totalPrice + '€';
         };
     } else {
         totalOutput.innerHTML = ''

@@ -5,8 +5,8 @@ let COLLECTION = [...NECKLACES, ...EARRINGS, ...BRACELETS];
 // ----------------------------------CREATES PRODUCTS IN GRID
 
 let burger = document.querySelector('.burger');
-let nav = document.querySelector('.nav-links');
-let navLinks = document.querySelectorAll('.nav-links li')
+let nav = document.querySelector('.menu');
+let navLinks = document.querySelectorAll('.menu li')
 let logo = document.querySelector('.h-logo');
 let header = document.querySelector('.header');
 
@@ -68,13 +68,13 @@ for (let btn of addToCartBtns) {
 };
 
 // -------------------------------------HAS TO BE OVER CART
-let numberOfItems = document.querySelector('.cart-btn__number');
-let totalOutput = document.querySelector('.cart__tot-price-output');
+let numberOfItems = document.querySelector('.show-cart__number');
+let totalOutput = document.querySelector('.cart-total__output');
 
 
 // --------------------------------------CART
 
-let cartContainer = document.querySelector('.cart__container-products');
+let cartContainer = document.querySelector('.cart-products');
 
 
 let CART = [];
@@ -189,7 +189,7 @@ function addToArray(e) {
         // };
     }
 
-    let rightContainer = document.querySelector('.header__container-right');
+    let rightContainer = document.querySelector('.header__right');
     rightContainer.classList.add('added-animation');
 
     rightContainer.addEventListener('animationend', () => {
@@ -206,9 +206,9 @@ function addToArray(e) {
 
 let sideCart = document.querySelector('.cart');
 let closeBtn = document.querySelector('.cart__close');
-let showBtn = document.querySelector('.cart-btn__btn');
+let showBtn = document.querySelector('.show-cart');
 let overlay = document.querySelector('.overlay');
-let containerTotal = document.querySelector('.cart__container-total');
+let containerTotal = document.querySelector('.cart-total');
 
 function showCart() {
 
@@ -241,7 +241,7 @@ function addToCart() {
     // let cartString = JSON.stringify(CART);
     // localStorage.setItem('cart', cartString);
 
-    let containerTotal = document.querySelector('.cart__container-total');
+    let containerTotal = document.querySelector('.cart-total');
 
     cartContainer.innerHTML = "";
     
@@ -256,31 +256,31 @@ function addToCart() {
     CART.map( (e, i) => {
 
         let cartArticle = document.createElement('article');
-        cartArticle.classList.add('cart__article')
+        cartArticle.classList.add('cart-item')
         cartContainer.appendChild(cartArticle);
     
         let cartImg = document.createElement('img');
-        cartImg.classList.add('cart__img');
+        cartImg.classList.add('cart-item__img');
         cartImg.src = e.img;
         cartImg.alt = e.alt;
         cartArticle.appendChild(cartImg);
 
         let cartTextContainer = document.createElement('div');
-        cartTextContainer.classList.add('cart__text-container');
+        cartTextContainer.classList.add('cart-item__text');
         cartArticle.appendChild(cartTextContainer);
     
         let cartProduct = document.createElement('h4');
-        cartProduct.classList.add('cart__product');
+        cartProduct.classList.add('cart-item__product');
         cartProduct.innerHTML = e.product;
         cartTextContainer.appendChild(cartProduct);
 
         let cartPrice = document.createElement('p');
-        cartPrice.classList.add('cart__price');
+        cartPrice.classList.add('cart-item__price');
         cartPrice.innerHTML = e.price + '€';
         cartTextContainer.appendChild(cartPrice);
 
         let quantityContainer = document.createElement('div');
-        quantityContainer.classList.add('quantity__container')
+        quantityContainer.classList.add('quantity')
         cartTextContainer.appendChild(quantityContainer);
 
         let remove = document.createElement('button');
@@ -290,7 +290,7 @@ function addToCart() {
 
         let quantity = document.createElement('p');
         quantity.innerHTML = e.quantity;
-        quantity.classList.add('item__quantity');
+        quantity.classList.add('quantity__output');
         quantityContainer.appendChild(quantity);
 
         let add = document.createElement('button');
@@ -345,7 +345,7 @@ function updatePrice() {
     if (CART) {
         for (let i = 0; i < CART.length; i++) {
             totalPrice += CART[i].price * CART[i].quantity;
-            totalOutput.innerHTML = totalPrice + '€';
+            totalOutput.innerHTML = 'Total: ' + totalPrice + '€';
         };
     } else {
         totalOutput.innerHTML = ''
@@ -382,7 +382,7 @@ function scrollItems() {
     
     for (let item of items) {
         let itemPosition = item.getBoundingClientRect().top;
-        let screenPosition = window.innerHeight / 2.5;
+        let screenPosition = window.innerHeight / 3.8;
         
 
         if (itemPosition < screenPosition) {

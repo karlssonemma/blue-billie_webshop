@@ -7,46 +7,36 @@
     align-items: center;
 
     background-color: black;
-
 }
 
-.footer__head {
-    padding-right: 0.6em;
+.footer__logo {
     color: white;
 
     cursor: pointer; 
     text-decoration: none;
 }
 
-.footer__head span {
-    display: block;
-}
-
-.footer__head, 
-.footer__head span {
+.footer__logo p {
     font-size: 4.5rem;
     font-family: 'Righteous';
 }
 
-.footer__head:hover {
-    color: rgb(159, 238, 13);
-}
+.footer__contact {
+    padding-left: 1em;
 
-.contact {
-    font-size: 2rem;
-
+    font-size: 2.5rem;
     color: white;
-    
-}
-
-.contact span {
-    display: block;
-
-    font-size: 1.5rem;
 }
 
 .email {
     padding-top: 1em;
+    display: block;
+    cursor: pointer;
+}
+
+.footer__logo:hover,
+.email:hover {
+    color: rgb(159, 238, 13);
 }
 
 
