@@ -126,7 +126,7 @@ function updatePrice() {
             totalOutput.innerHTML = 'Total: ' + totalPrice + '€';
         };
     } else {
-        totalOutput.innerHTML = ''
+        totalOutput.innerHTML = 'Total: 0€';
     };
 }
 

@@ -9,12 +9,7 @@
     overflow-x: hidden;
 }
 
-.grid-container {
-    position: relative;
-}
-
 .grid {
-    /* ändrat */
     width: 100vw;
     margin: 100px auto;
     overflow: hidden;
@@ -30,7 +25,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* justify-content: center; */
 
     transition: 1s;
     opacity: 0;
@@ -48,11 +42,6 @@
     padding-top: 10em;
 }
 
-.grid-item__product {
-    font-size: 1.6rem;
-
-}
-
 .grid-item__img {
     max-height: 800px;
     max-width: 100%;
@@ -63,7 +52,6 @@
     display: block;
     padding-left: .2em;
 
-    font-size: 1.6rem;
     font-family: 'Righteous', sans-serif;
 
     background-color: transparent;
@@ -71,6 +59,10 @@
     cursor: pointer;
 }
 
+.grid-item__product,
+.grid-item__btn {
+    font-size: 1.6rem;
+}
 
 .grid-item__btn:hover, 
 .grid-item__btn:focus {
@@ -78,17 +70,7 @@
     outline: none;
 }
 
-.description-overlay {
-    background-color: rgb(30, 37, 30);
-    width: 100px;
-    height: 100px;
-
-    position: relative;
-    top: 0;  
-}
-
 /* ------------MEDIA QUEREYS------------ */
-
 
 @media screen and (min-width: 700px) {
     .grid {

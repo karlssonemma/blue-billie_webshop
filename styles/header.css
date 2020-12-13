@@ -12,7 +12,6 @@
 .header {
     width: 100vw;
     height: 100px;
-    /* ändrat */
     padding: 0 20px;
 
     display: grid;
@@ -36,6 +35,7 @@
 
     z-index: 10;
     transition: 0.5s;
+    
 }
 
 .logo-active {
@@ -50,6 +50,7 @@
 
 .header__right {
     height: 100%;
+
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -66,18 +67,20 @@
     width: 60px;
     height: 100%;
     margin-left: 20px;
+
     font-size: 1.6rem;
     background-color: rgb(159, 238, 13);
+    
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 #search-label {
-    visibility: hidden;
+    opacity: 0;
 }
 
-.search {
+.search-form {
     display: none;
 }
 
@@ -107,22 +110,21 @@
     width: 15px;
 }
 
-
 .show-cart {
-    padding: 15px 0;
+    height: 100%;
+    padding: 0 6em;
 
     border: none;
     
     background-color: transparent;
     cursor: pointer;
-    transition: .5s;
 
     display: none;
 }
 
 .show-cart:hover, 
 .show-cart:focus {
-    border-bottom: .5px solid black;
+    background-color: rgb(159, 238, 13);
     outline: none;
 }
 
@@ -183,7 +185,7 @@
     align-items: center;
     justify-content: center;
 
-    transition: 1s ease;
+    transition: .5s ease-in-out;
 }
 
 .nav-active {
@@ -268,7 +270,7 @@
 }
 
 @media screen and (min-width: 1200px) {
-    .search {
+    .search-form {
         display: block;
     }
 }

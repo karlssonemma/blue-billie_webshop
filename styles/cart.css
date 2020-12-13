@@ -37,7 +37,14 @@
     box-shadow: 0px 1px 10px 2px rgb(161, 161, 161);
 
     transition: 1s;
+    display: none;
 }
+
+.display-cart {
+    right: 0;
+    transition: 1s;
+}
+
 
 /* -----------HEAD-SECTION--------------- */
 .cart-head {
@@ -113,7 +120,7 @@
     height: max-content;
     padding-top: 15em;
 
-    display: none;
+    display: flex;
     flex-direction: column;
     justify-content: center;
 
@@ -150,6 +157,7 @@
     color: white;
 }
 
+/* --------------MEDIA QUEREYS-------------- */
 
 @media screen and (min-width: 700px) {
     .cart {

@@ -103,7 +103,7 @@ const EARRINGS = [
         price: 105,
         img: './img/earrings/small_hoops_silver/small-hoops-shiny-silver.jpg',
         id: 'earrings3',
-        description: `The Small Hoops from the Round Objects Drop 1 are petite yet chubby hoop earrings for any occasion, both day and night. A round object can be many things- As simple as a bubble of soap or as intricate as the earth. The Hoops from the Round Objects Collection are making a simple statement for all intricate people out there, because lets face it- we all are.`,
+        description: `The Hoops from the Round Objects Collection are making a simple statement for all intricate people out there, because lets face it- we all are.`,
         alt: 'Small simple hoops in silver. Photo.',
         category: 'earrings',
         quantity: 1
@@ -113,7 +113,7 @@ const EARRINGS = [
         price: 350,
         img: './img/earrings/sapphire_earring/sapphire-earring.jpg',
         id: 'earrings4',
-        description: `Make a statement with this classic yet edgy earring. The Sapphire Earring has natural sapphires in a beautiful deep blue color and will for sure make you feel extra luxurious. Wear it with the matching Sapphire Ring for a complete look!`,
+        description: `The Sapphire Earring has natural sapphires in a beautiful deep blue color and will for sure make you feel extra luxurious. Wear it with the matching Sapphire Ring for a complete look!`,
         alt: 'Hoop in silver with sapphires. Photo.',
         category: 'earrings',
         quantity: 1
@@ -138,7 +138,7 @@ const BRACELETS = [
         price: 450,
         img: './img/bracelets/bangle_silver/bangle-matte-silver-1.jpg',
         id: 'bracelet0',
-        description: `The Bangle from the Round Objects Drop 2 is the perfect bracelet for any occasion, both day and night. A round object can be many things- As simple as a basketball or as intricate as the earth. The Bangles from the Round Objects Collection are making a simple statement for all intricate people out there, because lets face it- we all are.`,
+        description: `A round object can be many things - As simple as a basketball or as intricate as the earth. The Bangles from the Round Objects Collection are making a simple statement for all intricate people out there, because lets face it - we all are.`,
         alt: 'Bangle in silver. Matte. Photo.',
         category: 'bracelet',
         quantity: 1
@@ -188,7 +188,7 @@ const BRACELETS = [
         price: 90,
         img: './img/bracelets/thick_rope_bracelet/thickrope-bracelet-silver.jpg',
         id: 'bracelet5',
-        description: `The Thick Rope Bracelet is timeless, versatile and unisex. It's safe to say it will become your favorite go-to bracelet for many years to come! Wear it together with the Thick Rope Necklace for a complete look.  `,
+        description: `The Thick Rope Bracelet is timeless, versatile and unisex. It's safe to say it will become your favorite go-to bracelet for many years to come! Wear it together with the Thick Rope Necklace for a complete look.`,
         alt: 'Rope-like bracelet in silver. Photo.',
         category: 'bracelet',
         quantity: 1

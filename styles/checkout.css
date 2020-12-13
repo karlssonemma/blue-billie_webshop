@@ -47,7 +47,7 @@
 
 .product__text {
     max-width: 300px;
-    padding-left: 20px;
+    padding-left: 20em;
 
     display: flex;
     flex-direction: column;
@@ -119,7 +119,6 @@
     color: rgb(159, 238, 13);
 }
 
-
 .continue-link__p {
     font-size: 1.8rem;
     display: inline;
@@ -138,11 +137,11 @@
     width: 80vw;
     padding: 10em;
     margin: 60px auto;
+
     text-align: center;
 }
 
-.total__container p, 
-.total__container span {
+.total__container p {
     font-size: 4rem;
 }
 
@@ -171,26 +170,23 @@
     color: white;
 }
 
-
+/* --------------MEDIA QUEREYS-------------- */
 
 @media screen and (min-width: 750px) {
-    .container__products {
+    .container__products,
+    .continue-link {
         width: 80vw;
-    }
-
-    .product__description {
-        display: block;
     }
 
     .product {
         grid-template-columns: 120px auto max-content;
     }
 
-    .product__total {
+    .product__description {
         display: block;
     }
 
-    .continue-link {
-        width: 80vw;
+    .product__total {
+        display: block;
     }
 }

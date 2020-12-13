@@ -29,26 +29,26 @@
 
         
         <ul class="menu">
-            <li><a class="menu__link" href="#necklaces">Necklaces</a></li>
-            <li><a class="menu__link" href="#earrings">Earrings</a></li>
-            <li><a class="menu__link" href="#bracelets">Bracelets</a></li>
+            <li><a class="menu__link" href="#necklace0">Necklaces</a></li>
+            <li><a class="menu__link" href="#earrings0">Earrings</a></li>
+            <li><a class="menu__link" href="#bracelet0">Bracelets</a></li>
             
             <li><a href="./checkout.html" class="menu__link">Cart</a></li>
             <li><a href="" class="menu__link">About</a></li>
         </ul>
     
 
-        <section class="header__right">
+        <div class="header__right">
 
-            <div class="search">
+            <form class="search-form" role="search">
                 <label for="search" id="search-label">Search</label>
-                <input id="search" type="search" class="search__input" role="search">
-                <button class="search__submit">
+                <input id="search" type="text" class="search__input">
+                <button class="search__submit" aria-label="search submit">
                     <img src="./img/icons/search.png" alt="">
                 </button>
-            </div>
+            </form>
             
-            <button class="show-cart">
+            <button class="show-cart" aria-label="show cart">
                 <span class="show-cart__number">0</span>
                 <img src="./img/icons/shopping-bag-outline.png" class="show-cart__img" alt="">
             </button>
@@ -59,9 +59,9 @@
                 <div class="bottom"></div>
             </div>
 
-            <div class="added">added!</div>
+            <span class="added">added!</span>
 
-        </section>
+        </div>
             
         
 
@@ -76,7 +76,7 @@
 
             <section class="cart-head">
                 <h2 class="cart__header">CART</h2>
-                <button class="cart__close">
+                <button class="cart__close" aria-label="close cart">
                     <i class="fas fa-times"></i>
                 </button>
             </section>
@@ -91,16 +91,11 @@
         </section>
 
         <!-- GRID -->
-        <section class="grid-container">
-            <section class="grid grid-main" id="necklaces">
+        
+        <section class="grid grid-main"></section>
 
-            </section>
-
-            <section class="grid grid-new">
-                
-            </section>
-        </section>
-
+        <section class="grid grid-new"></section>
+        
     </main>
 
     <!-- FOOTER -->
