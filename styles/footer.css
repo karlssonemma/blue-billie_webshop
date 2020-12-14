@@ -1,5 +1,16 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 62.5%;
+    font-family: 'Didact Gothic', sans-serif;
+    scroll-behavior: smooth;
+
+    max-width: 100vw;
+    overflow-x: hidden;
+}
+
 .footer {
-    min-height: 200px;
+    height: 150px;
     padding: 30px;
     background-color: blue;
 
@@ -17,15 +28,16 @@
 }
 
 .footer__logo p {
-    font-size: 4.5rem;
+    padding-right: .5em;
+    font-size: 3.5rem;
     font-family: 'Righteous';
 }
 
-.footer__contact {
-    padding-left: 1em;
 
-    font-size: 2.5rem;
+.footer__contact p, 
+.email {
     color: white;
+    font-size: 1.2rem;
 }
 
 .email {
@@ -37,6 +49,22 @@
 .footer__logo:hover,
 .email:hover {
     color: rgb(159, 238, 13);
+}
+
+@media screen and (min-width: 700px) {
+
+    .footer {
+        height: 200px;
+    }
+
+    .footer__logo p {
+        font-size: 4.5rem;
+    }
+
+    .footer__contact p,
+    .email {
+        font-size: 1.4rem;
+    }
 }
 
 

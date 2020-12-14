@@ -34,10 +34,8 @@
     top: 0;
     z-index: 960;
 
-    box-shadow: 0px 1px 10px 2px rgb(161, 161, 161);
-
     transition: 1s;
-    display: none;
+    /* display: none; */
 }
 
 .display-cart {
@@ -110,7 +108,7 @@
 
 .cart-item__product, 
 .cart-item__price {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     padding-bottom: .5em;
 }
 
@@ -151,8 +149,8 @@
     transition: .2s;
 }
 
-.checkout:hover, 
-.checkout:focus {
+.checkout-btn:hover, 
+.checkout-btn:focus {
     background-color: black;
     color: white;
 }

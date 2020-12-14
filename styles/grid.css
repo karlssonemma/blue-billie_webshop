@@ -61,7 +61,7 @@
 
 .grid-item__product,
 .grid-item__btn {
-    font-size: 1.6rem;
+    font-size: 1.2rem;
 }
 
 .grid-item__btn:hover, 
@@ -72,11 +72,13 @@
 
 /* ------------MEDIA QUEREYS------------ */
 
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 500px) {
     .grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 15em;
+        gap: 5em;
     }
+
+    
 }
 
 @media screen and (min-width: 1000px) {

@@ -5,8 +5,9 @@ let returnedCart = JSON.parse(data);
 
 let CART = [...returnedCart];
 
-// SHOW PRODUCTS IN CART.
-
+// -------------------------------------------------------------------------
+// ----------------------CREATES ITEMS IN CART------------------------------
+// -------------------------------------------------------------------------
 let containerProducts = document.querySelector('.container__products');
 let totalOutput = document.querySelector('.total__output')
 
@@ -101,7 +102,6 @@ function showItems() {
         });
     });
 
-    // GIVES ALL THE BUTTONS EVENT-LISTENENERS. NEEDS TO BE INSIDE THE FUNCTION showItems BECAUSE EVERY TIME AN ITEM IS DELETED THE CODE FOR THIS IS DELETED AND THEN RECREATED. IF THIS STUFF IS OUTSIDE THE LOOP ONLY THE FIRST ROUND OF BUTTONS WILL HAVE EVENT-LISTENERS.
     let deleteBtn = document.getElementsByClassName('product__delete-btn');
 
     for (let btn of deleteBtn) {
@@ -112,12 +112,15 @@ function showItems() {
     updateLocalStorage();
 };
 
-// --------------------------------------------------------------
-
 showItems();
 
+// -------------------------------------------------------------------------
+// ----------------------UPDATES TOTAL PRICE--------------------------------
+// -------------------------------------------------------------------------
+
+
 function updatePrice() {
-    // SHOWS TOTAL PRICE IN CART
+
     let totalPrice = 0;
 
     if (CART.length > 0) {
@@ -130,27 +133,42 @@ function updatePrice() {
     };
 }
 
+// -------------------------------------------------------------------------
+// ----------------------UPDATES LOCAL STORAGE------------------------------
+// -------------------------------------------------------------------------
 
 function updateLocalStorage() {
-    // PUSH TO LOCAL STORAGE
+
     let cartString = JSON.stringify(CART);
     localStorage.setItem('cart', cartString);
 }
 
-// DELETE FUNCTION
+// -------------------------------------------------------------------------
+// ----------------------DELETE ITEM IN CART--------------------------------
+// -------------------------------------------------------------------------
+
 function deleteItem(e) {
+
+    let found = CART.find( product => { 
+        product.id === e.target.id;
+        return product;
+    } );
+
+    CART.splice(found, 1);
+    console.log(CART)
+
+    showItems();
+    updateLocalStorage();
     
-    for (let i = 0; i < CART.length; i++) {
+    // for (let i = 0; i < CART.length; i++) {
         
-        if (e.target.id === CART[i].id) {
+    //     if (e.target.id === CART[i].id) {
 
-            CART.splice(i, 1);
+    //         CART.splice(i, 1);
 
-            let cartString = JSON.stringify(CART);
-            localStorage.setItem('cart', cartString);
-
-            showItems();
-        };
-    };
+    //         updateLocalStorage();
+    //         showItems();
+    //     };
+    // };
 };
 
